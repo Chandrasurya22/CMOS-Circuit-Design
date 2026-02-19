@@ -183,6 +183,31 @@ due to the additional reverse bias.
 <img width="1532" height="666" alt="image" src="https://github.com/user-attachments/assets/f72d0ca8-cc1f-4f60-a65d-dbd430caa824" />
 
 
+### Threshold Voltage with positive substrate potential
+
+An important observation: 
+So in referring to the above mentioned Case 2 of ( Vsb = +ve value ), Due to the presence of the +ve Vsb, few charges from the channel are pulled towards the source 'S'. 
+<img width="511" height="347" alt="image" src="https://github.com/user-attachments/assets/076c02ff-f58a-4500-b9f2-3bca28c7b192" />
+
+This does not happend when you have given the Vsb = 0. 
+
+Due to this the surface inversion will be slower in second case. 
+
+So, in order to overcome the above scenario, we need to increase/ have more>>>Vsb 
+
+--> for Vsb = 0 ; Vgs = Vto ( say) ----> Surface inversion is happening 
+--> for Vsb = +++Ve ; Vgs = Vto + V1 ---> There is a surface inversion is happening.   
+we need an additional potential for this strong surface inversion to happen. 
+
+ <img width="916" height="490" alt="image" src="https://github.com/user-attachments/assets/2471d2ce-0c2c-47e5-8df1-890e106078a3" />
+
+--> Vto, Fermi Potential, Gamma will comes from the foundary. these models are being fed to spice simulation. The Threshold equation will represent the MOSFET device. 
+
+<img width="452" height="227" alt="image" src="https://github.com/user-attachments/assets/124c3e8b-c681-49de-bc6d-2de9f46bd8f2" />
+
+Once you give the parameters to the SPICE tool, it will derive the threshold voltage, which will represnt the mentioned NMOS. 
+
+<img width="897" height="499" alt="image" src="https://github.com/user-attachments/assets/3f798dd7-e3cf-440f-9463-c4ad501076b9" />
 
 
 
@@ -195,49 +220,6 @@ due to the additional reverse bias.
 
 
 
-
-
-
-
-
-Due to Accumulation of negatuve charges, there will be formation of Depletion Region, depleting of it's majority carriers i.e positive carriers here.</br>
-
-<img width="831" height="402" alt="image" src="https://github.com/user-attachments/assets/335a3525-699e-4c66-8161-2201df2b9070" />
-
-Now we will increase the Gate voltage further, we will see that the positive charge carriers will be repelled and there will be increase of Depletion Width. On further increase of Gate voltage we will reach at a point where the surface gets inverted into an n-type material, this is called "Surface Inversion" or "Stronf Inversion". The gate voltage of Vgs voltage where Strong Inversion happens is called "Threshold Voltage".</br>
-
-<img width="1332" height="551" alt="image" src="https://github.com/user-attachments/assets/03776359-fd17-4e04-9fd5-9212422217df" />
-
-What will happen if we further increase Vgs? As there are no more negative charges that will be attracted towards the positive Vgs, The negative charges from n+ region will get attracted and so there will be a formation of channel at the surface.</br>
-
-<img width="1358" height="573" alt="image" src="https://github.com/user-attachments/assets/f8c47353-dbf7-4026-b4d9-89ebff6cd24d" />
-
-<img width="1350" height="618" alt="image" src="https://github.com/user-attachments/assets/183a52c0-755d-43c6-9731-9043b047e679" />
-
-Now there is a possibility of current from Source to Drain. The channel has bridged the gap between source to drain regions. But as there is no Drain voltage so the elctrons will not move, this is "Cut Off Region" now.</br>
-
-We will see what happens when we change the potential of Body terminal.</br>
-
-<img width="1311" height="532" alt="image" src="https://github.com/user-attachments/assets/0aa83b1f-12c2-4765-bd3f-caa35daac877" />
-
-There will be increase in depletion region between source and body terminal. </br>
-
-<img width="1283" height="607" alt="image" src="https://github.com/user-attachments/assets/1dd9f64e-5345-4dc9-98b2-6dcde19765ef" />
-
-### L4 Threshold voltage with positive substrate potential
-If we increase Vgs, we will see that the depletion region increase in both the cases. But, in second case as there is Vsb +ve, few charges from channel will be pulled towards the source.</br>
-
-<img width="1247" height="617" alt="image" src="https://github.com/user-attachments/assets/65d128ea-03af-4dd4-af13-28b261e0fe66" />
-
-Due to this the surface inversion will be slower in second case. Therefore some extra potential has to be apllied in second case to create inversion.</br>
-
-<img width="1356" height="658" alt="image" src="https://github.com/user-attachments/assets/98b3483c-2c33-4244-b96d-6098ee9b0163" />
-
-<img width="632" height="235" alt="image" src="https://github.com/user-attachments/assets/8025a009-e2dd-4e83-a4d6-c1725668e6fc" />
-
-The parameters such as Gamma comes from foundaries after simulation of which in SPICE we get the value for Vt (Threshold Voltage).</br>
-
-<img width="1327" height="643" alt="image" src="https://github.com/user-attachments/assets/8955fdc9-1230-4562-b513-4eca06eb5d3c" />
 
 ## NMOS resistive region and Saturation region of operation
 

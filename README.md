@@ -328,6 +328,7 @@ For all Vds <= ( Vgs - Vt ) your device will work in the linear region or resisi
 
 
 
+
 ### L4 SPICE conclusion to resistive operation
 We need to find the impact of Vgs and Vds on the drain current equation. We will consider different values of Vgs and Vds. If we consider different values of Vgs, under what condition the device will remain in Linear region depends on (Vgs-Vt) should be greater than Vds.</br>
 

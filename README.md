@@ -182,7 +182,6 @@ due to the additional reverse bias.
 
 <img width="1532" height="666" alt="image" src="https://github.com/user-attachments/assets/f72d0ca8-cc1f-4f60-a65d-dbd430caa824" />
 
-
 ### Threshold Voltage with positive substrate potential
 
 An important observation: 
@@ -209,6 +208,36 @@ Once you give the parameters to the SPICE tool, it will derive the threshold vol
 
 <img width="897" height="499" alt="image" src="https://github.com/user-attachments/assets/3f798dd7-e3cf-440f-9463-c4ad501076b9" />
 
+
+## NMOS Resistive Region and Saturation region of Operation
+
+### 4-L1 Resistive region of operation with small drain-source voltage
+
+Resitive Operation: 
+
+--> What happens at different voltages -- Vgs > Vt
+--> If we keep on increasing the Vgs -- Channel width will increase. 
+--> This shows that the net Induced charges is propotional to (Vgs-Vt).
+<img width="872" height="361" alt="image" src="https://github.com/user-attachments/assets/d587946c-d5fb-4a73-af1b-d9a817d55755" />
+
+--> For the start lets apply a small voltage at Vds ( lets say 0.05V) and keep Vt ( NMOS )= 0.45V. & Vgs = 1V
+
+ <img width="872" height="378" alt="image" src="https://github.com/user-attachments/assets/81175bfe-1a6c-4212-9584-b23cd532c46b" />
+
+--> Source is connected to ground, Drain connected to the Vds. Ideally there will be a voltage graident in the channel, as the source is having zero potential and the drain is having Vds potential. 
+
+--> Voltage is not connstant all over the channel, starts at 0 and ends at Vds. 
+<img width="497" height="377" alt="image" src="https://github.com/user-attachments/assets/76196b10-120e-4a34-a49c-9e7753071bbe" />
+
+
+--> Effective Channel Length is different from the actual channel length. Also, the Effective channel length is much lesser than the original channel length
+
+--> Y - is the width of the transistor. X is the point at which there is V(x) ( voltage across the channel) 
+
+--> Due to the application of the Vds, every point on the channel will have the voltage of the Vgs - V(X). 
+
+
+<img width="1915" height="1020" alt="image" src="https://github.com/user-attachments/assets/3a4c21a2-9a55-471d-805c-730d8e33c6fe" />
 
 
 

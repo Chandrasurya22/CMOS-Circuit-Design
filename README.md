@@ -235,6 +235,7 @@ Resitive Operation:
 --> Y - is the width of the transistor. X is the point at which there is V(x) ( voltage across the channel) 
 
 --> Due to the application of the Vds, every point on the channel will have the voltage of the Vgs - V(X). 
+On applying Vds, every point on x axis will vary w.r.t to Vgs-V(x), this will decide the current equation.
 
 
 <img width="1915" height="1020" alt="image" src="https://github.com/user-attachments/assets/3a4c21a2-9a55-471d-805c-730d8e33c6fe" />

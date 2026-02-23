@@ -473,28 +473,55 @@ Once we have defined the netlist, we have to define the TECHNOLOGY File.
 <img width="883" height="411" alt="image" src="https://github.com/user-attachments/assets/849fac6a-818f-442d-bce0-e9bd2705c3f1" />
 
 
+### L3 Define Technology Paramaeters 
+
+We have a well defined NMOS description. NMOS will have its own models. Nmos, when we will pulgin, SPICE engine will understand, pick up the constants, and  evaluate the threshold voltage and drain current for it. 
+
+<img width="865" height="386" alt="image" src="https://github.com/user-attachments/assets/469c860e-18fe-4bcb-9b23-b1ae0fc398e4" />
 
 
-### L3 Define Technology parameters
-Now we will look for model of this particular NMOS. For this we have model paramters, and it becomes easy to model from the parameters. That is where the technology file comes into picture. The models for the name NMOs will be found in file which has the attribute of the similar name.</br>
+Vto, gamma, Kn` , lamda are the constants, when we have those it is very easy to calculate. 
+Equation is the model of the Nmos. we need the value of the constants for that specific technology node. 
 
-<img width="1312" height="592" alt="image" src="https://github.com/user-attachments/assets/4fa6b7c5-61d6-45f7-ba68-ad15a67426eb" />
+All these model parameters comes as a PACKAGE
 
-Inside the brackets, technology paramteters will exist. Similarly for pmos also.</br>
+<img width="414" height="414" alt="image" src="https://github.com/user-attachments/assets/027f5110-aedc-42bf-9965-0385649e1a91" />
 
-<img width="542" height="107" alt="image" src="https://github.com/user-attachments/assets/cbef3e32-99d7-4998-9957-e89c4ba96c57" />
 
-Now, we just plug in this packaged file in `.mod` file and call this file in top level SPICE netlist.</br>
+Engine will evaluate all the models using the constants given in the technology file.
 
-<img width="553" height="475" alt="image" src="https://github.com/user-attachments/assets/f7752179-bfcb-420b-a1df-0af1a648be2c" />
-<img width="603" height="197" alt="image" src="https://github.com/user-attachments/assets/23ce231b-f774-437b-ae5a-d3f0836d0a57" />
+Similarly we will have it for PMOS as well. 
 
-<img width="635" height="257" alt="image" src="https://github.com/user-attachments/assets/163cf011-37b0-450d-b7d4-4a915bc70653" />
+<img width="910" height="524" alt="image" src="https://github.com/user-attachments/assets/f07c4793-9fc3-4d40-953d-597d54248a18" />
 
-In the above image, the highlighted part is comment in SPICE.</br>
+
+Package this .mod file an call it in the netlist at the top. 
+
+<img width="543" height="504" alt="image" src="https://github.com/user-attachments/assets/b6c77f96-f917-421e-ba37-6cbc367445e5" />
+
+Whenever there is line starts with *** it is comments. 
+<img width="915" height="521" alt="image" src="https://github.com/user-attachments/assets/cb261cc7-06cb-4ad2-b897-bcd35ed93739" />
+
 Now, we need to sweep the Vgs and Vds for SPICE simulations.</br>
 
 ### L4 First SPICE simulation
+
+Open Virtual box 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * Open Virtual box
 * Type `cd`
 * `git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git`

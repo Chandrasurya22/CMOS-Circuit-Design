@@ -325,73 +325,141 @@ Now the question is how do we calculate Id for different values of the 'Vgs' and
 
 For that Calculations, we will do the SPICE SIMULATIONS
 
-
-
-
-
-
-
-
-
-
-
 ### L5 Pinch-off region condition
+
+The Drain to source voltage (Vds) is increased now beyond the Vt. 
+Channel Voltage = Vgs - Vds 
+
 There is also a Region of operation when Drain-source voltage exceeds the value (Vgs-Vt), the region of operation is called "Saturation Region".
-We know the channel voltage is Vgs-Vds. Now, we will increase the Vds.</br>
 
-<img width="1367" height="625" alt="image" src="https://github.com/user-attachments/assets/d29ecff9-3641-49c7-9348-fa7537ff7118" />
+Now awe will increase the Vds gradually to observe the characteristics of the device. 
+<img width="918" height="547" alt="image" src="https://github.com/user-attachments/assets/4dc8070a-198a-47e1-802b-f5d43d60d711" />
 
-When Vgs-Vds is greater than Vt, there will be a conducting channel.</br>
-When Vgs-Vds is equal to Vt, we will see at drain side, just Inversion has happened as it is equal to Vt, so channel will start disappearing at drain side.</br>
 
-<img width="1380" height="611" alt="image" src="https://github.com/user-attachments/assets/b51e39ef-093f-463d-8faa-7c6bb23cc68d" />
-<img width="1352" height="621" alt="image" src="https://github.com/user-attachments/assets/8d325d80-10d4-47e3-aed0-2caaf0715a36" />
+<img width="920" height="519" alt="image" src="https://github.com/user-attachments/assets/1a2bec2d-5bd3-47d5-a7f6-f3483e4a1eb2" />
 
-Now when the channel starts to disappear, is termed as "Pinch off region"</br>
 
-<img width="1492" height="602" alt="image" src="https://github.com/user-attachments/assets/40146460-641e-4f89-a950-acebeba103e3" />
+When we give Vds = 0.55 V. then the channel voltage = 0.45V 
+Out of two points in the channel , one point will have 1V ( > Vt) and other will have 0.45V   ( = Vt) </br> 
+The voltage at surface inversion happens is at the Threshold voltage. 
 
-When Vgs-Vds<Vt, we will not see any channel present at drain side.</br>
+<img width="908" height="532" alt="image" src="https://github.com/user-attachments/assets/de24e007-e4a1-4d02-93ac-6b44ef5c99bd" />
 
-<img width="1310" height="582" alt="image" src="https://github.com/user-attachments/assets/e62baac0-53e1-4c61-a9d6-e26a0a4b8ec1" />
+<img width="902" height="513" alt="image" src="https://github.com/user-attachments/assets/d891c8b9-3df2-4aa5-a8b0-2e006de81953" />
 
-This condition is termed as "Saturation region", when the mosfet is saturated and cannot do anything further.</br>
 
-<img width="391" height="102" alt="image" src="https://github.com/user-attachments/assets/4c0aca6a-e230-47d1-9e30-9416785487be" />
+Channel getting disappear from the point. This phenomenon of channel getting disappeared is reffered to as Pinch-Off Phenomenon. 
+Pinch - Off Phenonmenon == Channel begins to disappear. 
+
+<img width="893" height="474" alt="image" src="https://github.com/user-attachments/assets/19685cb1-d37e-4626-9a41-8b6857a11a0e" />
+
+
+This means there is still current flow exists, as there is still some potential difference in the channel. But only thing is that the Linearity of the Current wil differ. 
+
+On Further increasing the Vds. 
+Channel will get disappeared from the Drain region. But there is some channel present in the source area. This condition is reffered as "Saturation region", when the mosfet is saturated and cannot do anything further.
+ 
+<img width="903" height="493" alt="image" src="https://github.com/user-attachments/assets/75f97006-6946-4c14-939f-896a15f5212e" />
 
 ### L6 Drain current model for saturation region of operation
-In saturation region, the channel voltage will remain constant as 'Vgs-Vt', and the drain current will not depend on Vds.</br>
-To get drain current equation in saturation region we will replace Vds as Vgs-Vt.</br>
 
-<img width="467" height="360" alt="image" src="https://github.com/user-attachments/assets/3df0adef-9616-499c-97de-477da403178b" />
+In Saturation Region, Channel Voltage will remain constant as 'Vgs-Vt', It is no more the function of the Vds. 
 
-We can now see that according to the equation, the mosfet acts as perfect current source. But this is not true, when we increase Vds we will that Depletion region at drain increases and so channel length further reduces.Therefore, we see a slight dependency of Vds over Id</br>
+<img width="890" height="500" alt="image" src="https://github.com/user-attachments/assets/adacfd2e-25d1-4f22-8cd3-e76471eb6fe4" />
 
-<img width="1476" height="586" alt="image" src="https://github.com/user-attachments/assets/899bf2cb-f752-43ad-8750-5fc9d6b62f50" />
 
-This is called "Channel Length Modulation".</br>
+Derivation of the Drain current in the Saturation region. 
 
-<img width="876" height="168" alt="image" src="https://github.com/user-attachments/assets/b3d388c1-7074-49c9-a019-7d0ff212271f" />
+When you move higher values of the Vds, the channel voltage will remain constant. Overall area will remain constant ( Vgs - Vt ) 
+So when we say channel voltage , it the voltage between drain to source. 
+We will replace Vds by Vgs - Vt,  
+
+<img width="899" height="525" alt="image" src="https://github.com/user-attachments/assets/74f83312-e7a6-4434-9e60-b1ef7489e009" />
+
+<img width="899" height="511" alt="image" src="https://github.com/user-attachments/assets/c71bacd5-6d36-4a8d-b50b-cb4d43d5250b" />
+
+<img width="911" height="535" alt="image" src="https://github.com/user-attachments/assets/6d622c74-d20c-467b-a28a-08ccf0764f79" />
+
+Looks like Drain current is being the function of all the constants. just mosfet act  like a perfect currrent source. But it is not true. 
+
+<img width="907" height="512" alt="image" src="https://github.com/user-attachments/assets/9951d120-0592-4853-a00b-1fcc64a9c329" />
+
+But there is some dependency on the Vds. 
+Drain current is not constant, but slightly increases when you increase the Vds. 
+
+As Vds Increases,, Depletion region at drain increases,, and the Effective Channel length will decreases... 
+
+This is called "Channel Length Modulation".
+<img width="933" height="516" alt="image" src="https://github.com/user-attachments/assets/c7c1ee32-e5cb-4a44-8e9d-3fb25dffd9fe" />
+
+This equation, becomes equation for the constant current equation for the mosfet in saturation region. 
+
+<img width="585" height="121" alt="image" src="https://github.com/user-attachments/assets/364100b7-df1a-41a4-9b2b-9900113b8e1f" />
+
 
 ## Introduction to SPICE
 
-### L1 Basic SPICE setup
-First let us look into the SPICE setup.</br>
+### L1 Introduction to SPICE 
 
-<img width="1412" height="611" alt="image" src="https://github.com/user-attachments/assets/5872cd9a-70d1-46cf-9fe4-f5247f8d3415" />
+We need to feed in the correct value to the engine to generate the values. 
+Spice Setup. 
 
-Some parameters are constant, and directly coming from the foundaries we don't have to derive them. These are circiled in yellow.</br>
+<img width="889" height="513" alt="image" src="https://github.com/user-attachments/assets/6207c01b-85d4-452c-a624-688d36df8488" />
 
-<img width="1313" height="591" alt="image" src="https://github.com/user-attachments/assets/c7f8c503-a596-40a7-85e8-b00b1eef4cf9" />
 
-<img width="922" height="536" alt="image" src="https://github.com/user-attachments/assets/260175cb-7abc-4fc6-a332-6b73b7954cae" />
+the ones which are highlighted in the yellow are constants. 
+These are the technology constants, comes from the foundry. ( 20nm, 180nm) -- every technology nodes will have its unique values.
 
-So, when we feed the SPICE model parameters and SPICE netlist intp the SPICE software, we get the device characteristics in terms of Id vs Vds with different values of Vgs.</br>
+<img width="904" height="521" alt="image" src="https://github.com/user-attachments/assets/9ac3a327-cd5f-4df2-808e-adcc6febbdfc" />
 
+<img width="913" height="510" alt="image" src="https://github.com/user-attachments/assets/12b24f55-808c-4809-83c0-7a19a61065f9" />
+
+these are ones which you provide to the engine in the form of the model files 
+
+Yellow highlighted onces are the SPICE Model parameters. these needed to be fed correctly to get the correct waveforms. 
+
+SPICE model Parameters + SPICE netlist ---> SPICE Software ---> Waveforms  ( grphs ) 
+So, when we feed the SPICE model parameters and SPICE netlist into the SPICE software, we get the device characteristics in terms of Id vs Vds with different values of Vgs.
+
+<img width="910" height="522" alt="image" src="https://github.com/user-attachments/assets/e4862c9b-b6f2-445b-be35-bd512578df04" />
+
+Details of the SPICE netlist : 
 **SPICE Netlist**
-We need to feed the device into SPICE engine in certain manner, the circuit equivalent of given mosfet is as shown below. </br>
+<img width="720" height="1280" alt="image" src="https://github.com/user-attachments/assets/34294082-989e-4d62-82f0-2ab35d7bb1d5" />
 
-<img width="1262" height="585" alt="image" src="https://github.com/user-attachments/assets/ec870ea4-f7ce-4e99-939a-d6e8646c499e" />
+
+
+### L2 Circuit description in SPICE Syntax
+
+Write the Syntax for circuits in SPICE netlist. 
+
+Steps: 
+
+**Define Nodes** 
+
+0:50 
+
+define the nodes, so that we define the componets between the nodes. 
+
+2:50 
+
+
+COnvert the nodes into the valid spice netlist 
+There is no restrictions for the node names, 
+
+Since mosfet has 4 terminals it is between 4 different nodes, similarly resisior is between 2 nodes. 
+
+
+DGSS -- Drain Gate Source Substrate -- this is the order needed to be followed. 
+We need to go component wise, like that define all the components. 
+
+7:56 -- This is the netlist which defines 
+
+Once we have defined the netlist, we have to define the TECHNOLOGY File. 
+
+
+
+
 
 ### L2 Circuit description in SPICE syntax
 Now we will write the syntax for this particular circuit in SPICE netlist. To do that we need to follow some steps-

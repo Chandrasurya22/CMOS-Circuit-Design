@@ -437,60 +437,43 @@ Steps:
 
 **Define Nodes** 
 
-0:50 
+<img width="906" height="503" alt="image" src="https://github.com/user-attachments/assets/6df297aa-0f36-4647-8d92-bfc885dc86da" />
 
-define the nodes, so that we define the componets between the nodes. 
+define the nodes, so that we define the componets between the nodes.
 
-2:50 
+<img width="902" height="512" alt="image" src="https://github.com/user-attachments/assets/34d4f19e-f080-4c07-8c01-28477f63b1be" />
 
+<img width="880" height="445" alt="image" src="https://github.com/user-attachments/assets/f8703d13-4d06-49b7-b318-033433eef0bb" />
 
-COnvert the nodes into the valid spice netlist 
+Convert the nodes into the valid spice netlist 
 There is no restrictions for the node names, 
 
+<img width="852" height="376" alt="image" src="https://github.com/user-attachments/assets/172543a4-7ac2-498b-9422-f1ebf2c3d13f" />
 Since mosfet has 4 terminals it is between 4 different nodes, similarly resisior is between 2 nodes. 
 
+<img width="853" height="279" alt="image" src="https://github.com/user-attachments/assets/cbf9e092-d186-448e-b458-b6890f541cd1" />
+<img width="876" height="261" alt="image" src="https://github.com/user-attachments/assets/30587ec7-d23b-4338-aa03-6bc26ccccbcf" />
+<img width="856" height="289" alt="image" src="https://github.com/user-attachments/assets/f04fffd7-d408-4071-a87f-75c8dcff6bc9" />
+<img width="859" height="268" alt="image" src="https://github.com/user-attachments/assets/6b97b689-985b-4605-a717-e39a63cacfc0" />
+<img width="866" height="280" alt="image" src="https://github.com/user-attachments/assets/23c4770e-22d1-4e86-886a-b8460c628362" />
+<img width="849" height="249" alt="image" src="https://github.com/user-attachments/assets/025f8d2d-58ba-4b33-b3f6-9494166b5ea5" />
 
+this is a long channel mosfet.
 DGSS -- Drain Gate Source Substrate -- this is the order needed to be followed. 
 We need to go component wise, like that define all the components. 
+<img width="835" height="299" alt="image" src="https://github.com/user-attachments/assets/d236e680-1c39-48b5-bb49-b6f60e142d02" />
 
-7:56 -- This is the netlist which defines 
+<img width="814" height="246" alt="image" src="https://github.com/user-attachments/assets/53c224e7-4e07-497a-a7c9-420faa4aca64" />
+<img width="849" height="279" alt="image" src="https://github.com/user-attachments/assets/566f819b-f6e3-4f5f-b2f5-22d380244c8d" />
+
+This is the netlist which defines 
 
 Once we have defined the netlist, we have to define the TECHNOLOGY File. 
 
+<img width="883" height="411" alt="image" src="https://github.com/user-attachments/assets/849fac6a-818f-442d-bce0-e9bd2705c3f1" />
 
 
 
-
-### L2 Circuit description in SPICE syntax
-Now we will write the syntax for this particular circuit in SPICE netlist. To do that we need to follow some steps-
-* **Define Nodes**
-  
-  <img width="653" height="410" alt="image" src="https://github.com/user-attachments/assets/726a94e6-1333-41dc-a4c0-d9c766b00f9b" />
-
-* **Give names to the node**
-* **Write the code**
-  `since modfet has 4 terminals, it is lying between 4 different nodes, similarly resistor is lying between 2 nodes.`
-
-<img width="1307" height="418" alt="image" src="https://github.com/user-attachments/assets/fe360627-afb9-41d7-917d-95b7ac8ca6b7" />
-<img width="1211" height="371" alt="image" src="https://github.com/user-attachments/assets/5d8f624b-296a-499a-9cc2-c9fd0946fb52" />
-<img width="1213" height="412" alt="image" src="https://github.com/user-attachments/assets/c7d30d08-94c4-4891-95b3-4fc8c95fa3c9" />
-<img width="1132" height="381" alt="image" src="https://github.com/user-attachments/assets/b9dad3c6-2cc6-48a5-9409-a7eb90f39301" />
-<img width="1197" height="385" alt="image" src="https://github.com/user-attachments/assets/e091f59b-d7b8-4913-9ee3-0a2cc5d324f0" />
-
-The fashion in which it is written is "Drain", "Gate", "Source", and "Substrate" (DGSS).</br>
-
-<img width="1252" height="471" alt="image" src="https://github.com/user-attachments/assets/f9599207-d326-4da5-b92b-53d80a85c4cb" />
-<img width="1172" height="406" alt="image" src="https://github.com/user-attachments/assets/15ce1ea6-b8d3-47f6-9ef9-978ddd83bbc6" />
-<img width="1242" height="402" alt="image" src="https://github.com/user-attachments/assets/36660836-b886-4c2e-9649-d13863d65f7f" />
-
-this is a long channel mosfet.
-
-Similarly we can write for Resistor.</br>
-<img width="1263" height="416" alt="image" src="https://github.com/user-attachments/assets/880832b5-5f1b-49f3-9c01-25ef9bdc55c4" />
-<img width="1247" height="463" alt="image" src="https://github.com/user-attachments/assets/1d36164e-cf12-49e3-84b5-8f2928f4a8b9" />
-<img width="1345" height="370" alt="image" src="https://github.com/user-attachments/assets/fb1e6449-cf20-48d7-9888-eadc40c5319c" />
-<img width="1342" height="422" alt="image" src="https://github.com/user-attachments/assets/53c100fd-845e-474d-b3a3-9a53bfc0ee45" />
-<img width="637" height="308" alt="image" src="https://github.com/user-attachments/assets/6498b3c6-8eda-40ee-adf7-c9a6e332675f" />
 
 ### L3 Define Technology parameters
 Now we will look for model of this particular NMOS. For this we have model paramters, and it becomes easy to model from the parameters. That is where the technology file comes into picture. The models for the name NMOs will be found in file which has the attribute of the similar name.</br>

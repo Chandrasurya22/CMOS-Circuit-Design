@@ -310,32 +310,30 @@ For all Vds <= ( Vgs - Vt ) your device will work in the linear region or resisi
 
 <img width="877" height="506" alt="image" src="https://github.com/user-attachments/assets/e791014a-9d31-41c2-a688-90f406ca0cc5" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### L4 SPICE conclusion to resistive operation
-We need to find the impact of Vgs and Vds on the drain current equation. We will consider different values of Vgs and Vds. If we consider different values of Vgs, under what condition the device will remain in Linear region depends on (Vgs-Vt) should be greater than Vds.</br>
 
-<img width="591" height="172" alt="image" src="https://github.com/user-attachments/assets/d9735c9f-3a26-49aa-bc9b-62e64d65babe" />
+We have to see the impact of the Vgs and Vds on the drain current equation. when we try to vary Vgs and Vds, we need to understand how the device behaves for the different voltages of these. </br>
 
-Now the main question arises, How do we calculate Id for different values of 'Vgs' and at every value of 'Vgs', sweep Vds till (Vgs-Vt) using linear equation for Id?</br>
-For this we need to do SPICE simulations.</br>
+<img width="886" height="530" alt="image" src="https://github.com/user-attachments/assets/89c42fac-0b1f-4cbc-a0fd-0e1243df6837" />
+
+If we consider different values of Vgs, under what condition the device will remain in Linear region depends on (Vgs-Vt) should be greater than Vds.
+
+<img width="875" height="371" alt="image" src="https://github.com/user-attachments/assets/f6511f2c-9cc5-45e0-a4b8-db6112cb2cb1" />
+
+
+Now the question is how do we calculate Id for different values of the 'Vgs' and at every value fo the Vgs, sweep Vds till ( Vgs - Vt) and still identify the drain current using the Linear equation for Id. 
+
+For that Calculations, we will do the SPICE SIMULATIONS
+
+
+
+
+
+
+
+
+
+
 
 ### L5 Pinch-off region condition
 There is also a Region of operation when Drain-source voltage exceeds the value (Vgs-Vt), the region of operation is called "Saturation Region".

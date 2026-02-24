@@ -735,50 +735,56 @@ open source tools to gets hands on SPICE
 <img width="905" height="247" alt="image" src="https://github.com/user-attachments/assets/b3e8d302-ae5e-4ddc-b102-7d70f7db80f9" />
 
 
+### L5 Labs Sky130 Id-Vgs 
+Simulation for lower nodes. File : Day2 Design file. 
+
+<img width="870" height="224" alt="image" src="https://github.com/user-attachments/assets/b8df4322-8c3c-4d08-b7e7-2b9c0171081e" />
+
+<img width="865" height="797" alt="image" src="https://github.com/user-attachments/assets/e7dca6a4-34ca-42dc-af34-a7a33c6885f1" />
+
+As above, we are doing simulation on for W = 0.39u and L = 0.15u. 
+We are doing the Dc simulation, sweeping Vds from 0 to 1.8 v with step of 0.1 
+
+and Vin = Vgs from 0 to 1.8V with step of 0.2
+
+
+After doing the Spice run of the file 
+
+<img width="1750" height="1023" alt="image" src="https://github.com/user-attachments/assets/151d11b0-b0fd-40c2-89de-a8213b26a4db" />
+
+The lower values of the Vgs it is showing quadratic behaviour and at the higher values of the Vgs it is showing the linear behaviour. The above plot is Id vs Vds for different values of Vgs. We can see for lower values of Vgs it is showing quadratic behaviour and for higher values of Vgs it is showing Linear behaviour. Now if want to see the peak current for Vgs=1.8V, just 'press' left click on mouse at Vgs=1.8V.
 
 
 
+<img width="903" height="1037" alt="image" src="https://github.com/user-attachments/assets/7317ba67-d996-44ca-af52-8d9f85d2bedc" />
+
+For Vgs of 1.8v, the peak current is measured as 196uA
 
 
-### L5 Labs Sky130 Id-Vgs
-We will now do simulation for lower nodes. Inside day2 design file.</br>
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/2e30ad35-dbfe-42e4-a2c6-1c3e3ffd3d8b" />
+**Similary, if we want to see for Id Vs Vgs.**
 
-<img width="1915" height="1078" alt="image" src="https://github.com/user-attachments/assets/46853bc0-6ac5-4d4e-8c34-133b54530564" />
+<img width="900" height="1048" alt="image" src="https://github.com/user-attachments/assets/ab8b5de2-7694-46fd-ab30-e8ae87c27a5b" />
 
-We can see above, simulation is being done for L=0.15u and W=0.39u.</br>
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/0112c1fb-efa5-4eb2-a5c2-9c34923067ab" />
-<img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/05b5bf4a-79e4-4b9e-b92d-938707164205" />
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/3455d86b-dd2b-4b41-aad6-4bee2f683440" />
+<img width="908" height="947" alt="image" src="https://github.com/user-attachments/assets/d594bbd6-8086-4cc7-9b17-770df572edb8" />
 
-The above plot is Id vs Vds for different values of Vgs. We can see for lower values of Vgs it is showing quadratic behaviour and for higher values of Vgs it is showing Linear behaviour. Now if want to see the peak current for Vgs=1.8V, just 'press' left click on mouse at Vgs=1.8V.</br>
-
-<img width="290" height="22" alt="image" src="https://github.com/user-attachments/assets/83d91519-32f9-4d17-b88a-379635529e9a" />
-So we can see it is approximately 198uA.</br>
-
-**Now let us observe Id vs Vgs**
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/38b27e55-94b1-4190-9191-e022f3e3d548" />
-
+Here we are giving only one specifice Vgs value to observe the characteristics. 
+<img width="772" height="997" alt="image" src="https://github.com/user-attachments/assets/4cb4a01c-9578-4aea-b0e7-7eb95e81e075" />
+AS we have taken the length as 0.15u -- the short channel, you can observe the linear behaviour. 
 Here again we are taking values for L=0.15u and W=0.39u, Keeping Vds constant at 1.8V and sweeping Vgs from 0 to 1.8V with step of 0.1V.</br>
-
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/2c4fd12f-4995-43bc-b1bd-faaa1d6291a7" />
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/17f7032a-f654-4c22-81e9-acbc1cbe368f" />
-
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/b490e2f2-76aa-49f1-b37c-e986cb3e4126" />
-In the above graph we can see that, due to short channel effect we are seeing a linear behaviour for higher Vgs and Vds being constant.</br>
 
 ### L6 Labs Sky130 Vt
 Now we will calculate Threshold Voltage Vt for Id vs Vgs curve.
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/1e4b97da-884d-4447-b8ae-4d83ff1aef33" />
+<img width="973" height="767" alt="image" src="https://github.com/user-attachments/assets/dc337dde-2aeb-43fd-b21a-0ea758613f77" />
 
 In the curve we can see that Vt is the value when current increases drastically for small change in Vgs. To calculate we will draw tangent on the curve and see where it touches.</br>
 
-<img width="292" height="30" alt="image" src="https://github.com/user-attachments/assets/dfd6b8ca-308f-425e-97d0-58cb1799fca4" />
+<img width="321" height="43" alt="image" src="https://github.com/user-attachments/assets/8caedd5e-d272-4711-a806-aa873bb38b99" />
 
-It comes at around 0.76V.
+
+It comes at around 0.74V.
 
 ## CMOS voltage transfer characteristics (VTC)
 

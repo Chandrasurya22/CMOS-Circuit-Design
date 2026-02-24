@@ -867,25 +867,15 @@ Negative -VdsP is what potential you are giving the NMOS to turn ON, the reverse
 
 These two curves will be helpful in deriving the voltage transfer charactertistics of the CMOS inverter. 
 
+### L4 Step1- Convert PMOS gate-source-voltage to Vin
+
+PMOS is just an inversion of NMOS. 
 
 
-
-
-
-
-
-
-
-
-
-### L3 PMOS/NMOS drain current vs drain voltage
-<img width="485" height="677" alt="image" src="https://github.com/user-attachments/assets/f2026254-f2b7-4623-967a-79fbc649a8ea" />
-
-Now if we talk about the curve between Idsn Vs Vdsn and Idsp Vs Vdsp, it is as shown below.
-
-<img width="897" height="432" alt="image" src="https://github.com/user-attachments/assets/2e55422f-9659-4ce7-b6ac-b1fe6d41d1a0" />
 
 ### L4 Step1- Convert PMOS gate-source-voltage to Vin
+
+
 We have seen various internal voltages, but actually in terms of user's perspective we can't see the internal voltages and only see the external Vin and Vout. From these we calculate the VTC and eventually we get to know the delay.</br>
 
 **Now we will see the steps to obtain Voltage Transfer Characteristics(VTC) for static CMOS inverter:**

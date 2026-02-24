@@ -611,13 +611,18 @@ then plot -vdd#branch ( - is given due to the difference in the direction of the
 
 ### L2 Drain current vs gate voltage for long and short channel device
 
+
+**Observation 1:**
+Let us compare the two simulations we did.
+
+If we see Id values for different Vgs and for Vds=2.5V, there is a quadratic dependency of Id on Vgs. Whereas for short channel device, at Vds=2.5V, the current is increasing linearly due to velocity saturation
+
 There is a quadratic dependence of Id at each Vg 
-1:00
+
+<img width="892" height="510" alt="image" src="https://github.com/user-attachments/assets/13d3939e-45a5-4e5f-8388-612f07fb7aeb" />
 
 Based on the formula of saturation region, we can infer that the Drain current has quadratic dependence. 
-Drain current will quadratically increases with increase in the gate voltage. This is for the long channel MOSFET. 
-
-2:00
+Drain current will quadratically increases with increase in the gate voltage. This is for the long channel MOSFET.  
 
 For Short channel device: 
 
@@ -627,54 +632,40 @@ There is quadratic difference upto a certain Vg, but after that there is a linea
 Observing for  Drain current vs gate voltage for long and short channel device 
 for two different length channel devices. 
 
-4;34 
+<img width="463" height="346" alt="image" src="https://github.com/user-attachments/assets/885dac2a-63a3-4d5c-ad17-780cd59446d2" />
+
+<img width="479" height="394" alt="image" src="https://github.com/user-attachments/assets/8ba93088-34c8-4f1f-87ee-3c944da6f8fe" />
+
+This is one of the effects ( short channel effect )  you will observe while going through the lower nodes. The reasonn this is happening is due to velocity Saturation effect. 
+
+<img width="901" height="509" alt="image" src="https://github.com/user-attachments/assets/00e1ba34-bb52-4cfc-9fbc-f4aa0c3f7f42" />
+
+
+Now, we keep the Drain to source voltage constant, vary the gate voltage and measure the drain current. This procedure will be applied to both the 1.2u and 0.25u device and observe the graphs. 
+
+
+Now the Spice deck will remain exactly the same, the only change is in the line mentioned in the below picture. 
+
+<img width="305" height="173" alt="image" src="https://github.com/user-attachments/assets/b05e4dcd-7f09-430e-9b2b-1552187b2e4e" />
+
+<img width="338" height="181" alt="image" src="https://github.com/user-attachments/assets/a54f27a9-33be-4c7c-9af0-f506085afb08" />
+
+Now we will plot graph of Id vs Vgs and sweeping Vds or keeping Vds constant = 2.5V.
+
+This line specify that, now you vary the gate voltage from 0 to 2.5 with increment of the 0.1 
+and the VDD ( Vds ) is swept from the 0 to 2.5 with step of 2.5 ( as we want to look into one value of Vds ) 
+
+.dc Vin 0 2.5 0.1 Vdd 0 2.5 2.5  ( what ever there in the left hand side, that will be sweeped or tuned at every value of what you see in the right hand side. ) 
+
+<img width="1917" height="972" alt="image" src="https://github.com/user-attachments/assets/1eae8f1b-9642-4d72-881f-b3788d3f31c7" />
+
+dc2 is of short channel and dc1 is for long channel. 
+
+
+<img width="1755" height="710" alt="image" src="https://github.com/user-attachments/assets/7cfaeb4d-ca7d-46a8-9945-7f3f75c48d87" />
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### L2 Drain current vs gate voltage for long and short channel device
-Let us compare the two simulations we did.
-
-<img width="1385" height="547" alt="image" src="https://github.com/user-attachments/assets/0dd21cb8-3868-4074-909f-accde3fa2556" />
-
-**There are some Observations:**
-* **Observation 1**- If we see Id values for different Vgs and for Vds=2.5V, there is a quadratic dependency of Id on Vgs. Whereas for short channel device, at Vds=2.5V, the current is increasing linearly due to velocity saturation.</br>
-
-<img width="1385" height="547" alt="image" src="https://github.com/user-attachments/assets/3eb690d9-a38c-4c97-a9b2-2b0b5148ff63" />
-<img width="747" height="540" alt="image" src="https://github.com/user-attachments/assets/7f388d3d-9e7c-45ad-b70b-65a1d846f961" />
-
-Now we will plot graph of Id vs Vgs and sweeping Vds or keeping Vds constant = 2.5V.</br>
-
-<img width="855" height="442" alt="image" src="https://github.com/user-attachments/assets/658d2ba4-4e01-4e20-9a01-e949f3f88cb9" />
-
-The syntax explains that what will be there on left hand side will be sweeped at every value on right hand side. For example here for every value of Vdd, Vin will be sweeped. The plot we get is quadratic, it is only when Vds=2.5V </br>
-
-<img width="776" height="641" alt="image" src="https://github.com/user-attachments/assets/fd8321e8-6235-4c84-aa42-411747b0f599" />
-
-Let us see the same effect for short channel device. For L=0.25 micron.
-<img width="1332" height="592" alt="image" src="https://github.com/user-attachments/assets/ffba63a2-5ce1-42c5-a7f0-0f61fe194d12" />
 
 ### L3 Velocity saturation at lower and higher electric fields
 For short channel we will see more of a linear behaviour as the Vgs increases. This is due to velocity saturation effect.</br>

@@ -505,79 +505,74 @@ Whenever there is line starts with *** it is comments.
 Now, we need to sweep the Vgs and Vds for SPICE simulations.</br>
 
 ### L4 First SPICE simulation
-
-Open Virtual box 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 * Open Virtual box
 * Type `cd`
-* `git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git`
-  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/414d1bb8-13a1-4726-92cb-06ea15ed382f" />
+* `https://github.com/kunalg123/sky130CircuitDesignWorkshop.git`
 
-  inside the `sky130_fd_pr` directory we will see cells, models and tech files.</br>
+<img width="810" height="162" alt="image" src="https://github.com/user-attachments/assets/41de0445-0d43-4870-bc42-296f2b319625" />
 
-  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/be98370e-7126-4eb4-959d-ce8d40133e9a" />
 
-  Inside the `cells` files we will see `nfet` and `pfet` cells, these cells we will be using.</br>
+<img width="898" height="278" alt="image" src="https://github.com/user-attachments/assets/0ade77ae-4063-4779-8d27-d40693e052a2" />
 
-  Inside `nfet` we will see spice libraries at different corners, we will select one such typical corner.</br>
-  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/99aa0891-e80e-4457-8799-a4972c8a1f39" />
 
-  <img width="1918" height="1072" alt="image" src="https://github.com/user-attachments/assets/e4a24ba3-c6ab-4f42-8398-8bb9265b79d6" />
+<img width="722" height="287" alt="image" src="https://github.com/user-attachments/assets/030c31bc-b2d3-4d2c-b579-b737bf6d3b3f" />
 
-  We will see all the model paramteres required for the process.</br>
-  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/25186faa-ca04-43c7-9c2e-e3d99862ef41" />
+* Inside `sky130_fd_pr` directory we will see cells, models and tech files
+* Inside the `cells` files we will see `nfet` and `pfet` cells, these cells we will be using.
+* These are the only two cells `nfet' and 'pfet' which are gping to be used in this workshop.
 
-  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/baa1c253-f071-4bd2-b701-68fedb5be846" />
+<img width="872" height="217" alt="image" src="https://github.com/user-attachments/assets/a837f2c0-ec80-4e35-838c-5c033b76f0c0" />
 
-  We have different W and L values which pre-described. For simulation we need to take any one value which is present inside the library.</br>
+Inside `nfet` we will see we will see spice libraries at different corners, we will select one such typical corner.
+* In Sky130 technology, it has already pre-seeded / categorized some W and L values for the Nfet, in our designs we have select the W and L values among the mentioned files / sets.
+If you take any values outside these sets, it wont simulate it.
 
-  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/e980ebe5-c4f7-4b29-99ad-a7a6867db0d4" />
+<img width="609" height="851" alt="image" src="https://github.com/user-attachments/assets/76feaf5a-a367-4c6c-8b78-efc61b367692" />
+Now, inside `models` --> `lib.spice` file. It contains the library files for nfet and pfet for different corners.  mentioning the common files for the nfet and pfet including their corners. 
 
-  Now go inside `models` --> `lib.spice` file. We will see library files which are present for nfet and pfet. The corner files are present, include Typical, slow-fast and fast-fast corner files.</br>
+<img width="896" height="313" alt="image" src="https://github.com/user-attachments/assets/ffdb9d06-27ed-4912-b297-e82ca7b1e339" />
+Contains library files for both nfet and pfet 
+mentioning the common files for the nfet and pfet including their corners. 
+<img width="748" height="893" alt="image" src="https://github.com/user-attachments/assets/2bbf5946-4b08-4528-9dfe-620106db786d" />
 
-  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/22dd75fb-31d6-4196-8fae-f5897bdc9000" />
-  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/190a2e1b-bf47-4505-9034-47e3424e0087" />
 
-Inside `design` --> open day1 file.</br>
+<img width="867" height="212" alt="image" src="https://github.com/user-attachments/assets/5e96d502-bac7-4950-9f30-8afb9f264d9d" />
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/e6eabf93-da6c-478a-8ba2-37d440e2b048" />
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/67dcf536-1896-4202-a378-ec81ec3a717b" />
+We are including the library file along with specification of the corner.
+* Above we see Vdd varying from 0 to 1.8 volts with step size of 0.1V and Vgs sweeping from 0 to 1.8V and with step size of 0.2V
+
+<img width="896" height="732" alt="image" src="https://github.com/user-attachments/assets/5babe0d0-8260-4861-9067-bcebf2cb2842" />
+
+if you want to simulate for different corners, use FF - Fast corner, TT - typical corner, if you want slow fast -- keep sf in the above command.  
+
+and 'sky130_fd_pr__nfet_01v08' is the model name of the nfet which is being used. 
+Syntax is : 
+DGSB -- Drain gate source bulk. 
+
 Above we see Vdd varying from 0 to 1.8 volts with step size of 0.1V and Vgs sweeping from 0 to 1.8V and with step size of 0.2V
 
-Let us do the spice simulations:
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/51cf629c-17ad-4daa-b627-62abf3cc65c7" />
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/820c2138-e28f-4c1a-a3a1-d54669e4576a" />
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/6142f189-20cb-4bba-8918-ed8b1ec64f83" />
+* To run this file, type `ngspice` filename`.spice`
 
-We will get the plot of Id vs Vds at different Vgs values.</br>
+<img width="917" height="716" alt="image" src="https://github.com/user-attachments/assets/231197b8-47b5-4031-b66f-a55aafb16ea6" />
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/cb0bccce-ff20-4727-8062-962df8aa8017" />
 
-To check the value of Id for corresponding Vds and Vgs, just left click and see.</br>
+* After the plot command, we wil get ID vs VDs at different values of the Vgs values.
+  <img width="1025" height="1000" alt="image" src="https://github.com/user-attachments/assets/13dfd509-bc5c-4f4a-8776-fbb84e2e946f" />
 
-<img width="308" height="155" alt="image" src="https://github.com/user-attachments/assets/264c0ac3-955c-49b3-86f3-447e93e8e452" />
+* To check the value of Id for corresponding Vds and Vgs, just left click and see.
 
 ### L5 SPICE lab with Sky130 models
-If we go inside `models` folder, we will see `all.spice` file. If we open it we will see the scale of Width and Length.</br>
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/0f6dfb1f-7668-466a-8ba7-c9ac5beacb77" />
+
+If we go inside `models` folder, we will see `all.spice` file. If we open it we will see the scale of Width and Length. </br>
+
+<img width="866" height="306" alt="image" src="https://github.com/user-attachments/assets/2b1b08cd-7951-4f60-9ccc-239a6cfa2b37" />
+
 
 We can see that W and L values are in microns.</br>
+<img width="847" height="732" alt="image" src="https://github.com/user-attachments/assets/dce8cc37-f4bc-493f-9d61-8890ba35bd2a" />
+
 
 # NgspiceSky130-Day2-Velocity saturation and basics of CMOS inverter VTC
 

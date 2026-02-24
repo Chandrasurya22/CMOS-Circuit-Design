@@ -789,34 +789,94 @@ It comes at around 0.74V.
 ## CMOS voltage transfer characteristics (VTC)
 
 ### L1 MOSFET as a switch
-We will now look at the device parameters from the switch point of view.</br>
 
-<img width="907" height="508" alt="image" src="https://github.com/user-attachments/assets/6bb70912-c36e-4031-bf01-7e05871b28a8" />
-The above shows MOSFET as a switch:
-* When |Vgs|<Vt, device is OFF and it acts as open switch
-* When |Vgs|>Vt, device is ON and it acts as closed switch
+Mosfet as a Switch point of view. 
 
-<img width="1220" height="685" alt="image" src="https://github.com/user-attachments/assets/48869cbb-daee-4a3b-96a8-bdd0fb45a79f" />
+<img width="871" height="387" alt="image" src="https://github.com/user-attachments/assets/68f668f7-aad3-44df-b5f1-fb25092dda30" />
+
+When |Vgs| > |Vt| ---> Transistor ON ---> Act as closed switch 
+When |Vgs| < |Vt| ---> Transistor OFF --> Act as open switch 
+
+![WhatsApp Image 2026-02-24 at 19 21 37](https://github.com/user-attachments/assets/2a99669a-69b8-4a91-b1c9-ca2f61eecfb3)
+
+<img width="901" height="511" alt="image" src="https://github.com/user-attachments/assets/5eaa93e1-9368-4f9a-92df-d27d04b2294a" />
 
 ### L2 Introduction to standard MOS voltage current parameters
-We are trying to get the equivalent circuit of CMOS when Vin is 'high' and 'low', so that we can get the Voltage Transfer Characteristics (VTC) and therefore calculate the delay of the cell.</br>
 
-* When we take Vin as 'high' and equal to Vdd, PMOS will be OFF and NMOS will be ON
-<img width="1292" height="680" alt="image" src="https://github.com/user-attachments/assets/f65a1301-44f9-482e-b8dd-7b5cb3d39e47" />
+Equavlent circuit for the CMOS Inverter, as we need circuit for Vin -- High and Vin -- Low. Merge those circutis and try to find out the voltage transfer Characteristics ( VTC ) of the CMOS. That will be used to derive the delay of any cell. 
 
-* When we take Vin as 'low' or equal to '0', PMOS will be ON and NMOS will be OFF.
-<img width="1347" height="696" alt="image" src="https://github.com/user-attachments/assets/c15bdbc8-99af-48e0-a23c-726e7e415b66" />
+Now Vin is low and Equal to 0V. 
 
-So we can see that when Vin=Vdd there is a direct path that exists between Vss and Vout, the capacitor CL discharges through the resistor.</br>
-Similarly when Vin=0 there is a direct path between Vdd and Vout, CL charges.</br>
-<img width="1322" height="428" alt="image" src="https://github.com/user-attachments/assets/a4f22e15-1c9a-44cf-bfa2-e27b37557439" />
+For PMOS to turn ON -- Negative Vgs  < Negative Vt 
+For NMOS to turn ON --- Positive Vgs > Positive Vt
 
-Let us give the naming convention of the CMOS 
 
-<img width="506" height="618" alt="image" src="https://github.com/user-attachments/assets/7225993f-5a53-4456-9959-3cdf52d77960" />
+==> for PMOS here, |Vgs| > |Vt| -- Transistor ON
+To represent an ON transistor we will symbolize in resistor, as there are physcial elements like wires have resistance ( as the wires got width, depth, length ) 
+this resistance is the non linear function of the drain current. 
+
+<img width="892" height="510" alt="image" src="https://github.com/user-attachments/assets/c0b513db-24c0-4794-b44a-678703b5fb99" />
+
+We need to find the currents, which determine the voltage transfer characteristics
+
+When Vout = vdd. ===> Vout = 0. 
+Vout to be zero, if your capacitance is completely charged, all the charge present in the capacitor wil discharge through this Rn and as a result of that potential at that point wil be zero. 
+
+Direction of the current is also mentioned. 
+
+
+Now when Vin = 0, 
+In this condition, there is a direct current flow from Vdd to the CL, there by charging the capacitor, as a result Vout = Vdd. 
+Direction of the current is also mentioned. 
+<img width="883" height="518" alt="image" src="https://github.com/user-attachments/assets/eedfe1e4-29d8-4a58-9c48-dee7aa3fc54a" />
+
+Summary of the above. And also mentioned the Naming convention of the CMOS 
+
+<img width="883" height="514" alt="image" src="https://github.com/user-attachments/assets/9d153408-29e2-422f-8ac8-5a330f1b6e76" />
+
+### L3 PMOS/NMOS drain current vs drain voltage
+
+Voltage transfer characteristics is purely fucntion of the voltage. Everything we go around digital circutis is about voltages. What output voltage we are getting for the provided input. 
+It should all need to be function of voltage. 
+
+<img width="881" height="502" alt="image" src="https://github.com/user-attachments/assets/d86ce745-47ce-4306-b422-77931c48a83e" />
+
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/66c32ef5-f81f-4459-9db3-c83dfeb37860" />
+
 
 ALso the current in both the condition is Idsn(drain to source for NMOS) and Idsp(Drain to source for PMOS)
 And **Idsp = -Idsn**, both are opposite in direction to each other.
+ 
+Now NMOS IdsN vs VdsN Curve and PMOS IdsP Vs VdsP Curve. 
+
+<img width="1919" height="1055" alt="image" src="https://github.com/user-attachments/assets/148cbcb3-8d54-40d0-a2c6-532ef3ac69a4" />
+
+For NMOS 
+VgsN1 --> one of the gate to source voltage for NMOS, it was at zero potential, so the Id = 0 
+VgsN2 --> when you increase the Vgs to suffcient value, at point which is just above your threshold voltage  ( NMOS turns ON ) that is the Id curve. Similarly VgsN3 
+We increase further more till we achieve the maximum saturation VsgN which is VgsN5 
+
+For PMOS. 
+It is due to the direction, we are seeing Negative sign fo the IdsP 
+Negative -VdsP is what potential you are giving the NMOS to turn ON, the reverse potential you needed to give to turn ON the PMOS. 
+
+-VdsP ---> which is less than -Vt ---> -Vt Threshold voltage for PMOS--> PMOS OFF--> -IdsP = 0 
+-VgsP1 --> as when you start increasing the negative VgsP to more negative side, it becomes more and more lesser than the Vt pf PMOS. Means the PMOS already crossed the threshold voltage level as a result of that there is a Drain current flow. 
+
+-VgsP5 -- at this the maximum drain current is flowing. 
+
+These two curves will be helpful in deriving the voltage transfer charactertistics of the CMOS inverter. 
+
+
+
+
+
+
+
+
+
+
+
 
 ### L3 PMOS/NMOS drain current vs drain voltage
 <img width="485" height="677" alt="image" src="https://github.com/user-attachments/assets/f2026254-f2b7-4623-967a-79fbc649a8ea" />

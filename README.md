@@ -664,43 +664,81 @@ dc2 is of short channel and dc1 is for long channel.
 
 <img width="1755" height="710" alt="image" src="https://github.com/user-attachments/assets/7cfaeb4d-ca7d-46a8-9945-7f3f75c48d87" />
 
-
-
-
 ### L3 Velocity saturation at lower and higher electric fields
-For short channel we will see more of a linear behaviour as the Vgs increases. This is due to velocity saturation effect.</br>
+For Short Channel, we will see the sweep from Quadratic to Linear Behaviour as the Vgs increases. It says that the drain current is the quadratic function for the lower values of the Vgs and Linear function for higher values of Vgs. 
 
-<img width="1332" height="592" alt="image" src="https://github.com/user-attachments/assets/95aa490e-3dc0-4875-b74a-836c1ae07486" />
+<img width="903" height="429" alt="image" src="https://github.com/user-attachments/assets/0e83c1b8-2ab1-46e4-806d-a3e35f6a59cc" />
+
 So, for lower node we will have 4 regions of operations: **Cut Off, Linear, Saturation and Velocity Saturation**
 
 **Velocity Saturation**
-We know velocity and electric field are related to each other with equation `v=uE`, where v is velocity, E is electric field and u is mobility. Velocity increases linearly with electric field over certain electric field value after which it gets saturated. This is due to scattering at higher fields and mobility decreases. </br>
+* As We know Velocity = mobility * electric field
+* At lower fields, the velocity tends to be Linear function, and at the higher fields the velocity tends to become constant. Reason is due to the Scattering effect.
+* Velocity saturation happens for higher gate-source voltages
 
-<img width="973" height="506" alt="image" src="https://github.com/user-attachments/assets/57f60dd0-b579-4e67-962d-03c21c430e49" />
+At Lower fields: 
+<img width="681" height="255" alt="image" src="https://github.com/user-attachments/assets/cc66ff9b-09b5-4a37-9e48-eb080c45e12f" />
 
-Velocity saturation happens for higher gate-source voltages.</br>
+At Higher Fields : 
+<img width="685" height="242" alt="image" src="https://github.com/user-attachments/assets/a22c9536-a4b7-4644-a8ba-da2bd4193804" />
 
-<img width="1011" height="470" alt="image" src="https://github.com/user-attachments/assets/bf8911ed-1708-4c95-adc1-f6816f66a689" />
+* Velocity is the linear function for the E <= Ec ( Ec ---Crictical electric field )
+* Velocity is constant for the E >= Ec
+  <img width="386" height="93" alt="image" src="https://github.com/user-attachments/assets/b128f57a-6415-4eb1-ab7b-1a90aca4978e" />
+<img width="284" height="53" alt="image" src="https://github.com/user-attachments/assets/6bac0479-7df9-4973-b1a7-a7fdba65d3e0" />
+
+For continutity we will keep E = Ec, which brings us to the below equation 
+
+<img width="399" height="121" alt="image" src="https://github.com/user-attachments/assets/b97d1b75-c104-4405-b38d-ba530c4b90f5" />
+
+Now we are re-deriving the drain current using the below boundary condition :  
+<img width="885" height="445" alt="image" src="https://github.com/user-attachments/assets/45842a3d-3a94-4168-b547-754f45447379" />
+<img width="337" height="153" alt="image" src="https://github.com/user-attachments/assets/a71d4842-b02a-484c-8e95-ee533ff2e591" />
+
+As this model became complex, we are coming up with the simplified one. 
+
+**Operation modes:** 
+
+<img width="673" height="377" alt="image" src="https://github.com/user-attachments/assets/825aee06-c510-49fb-b438-13994eedd03f" />
 
 ### L4 Velocity saturation drain current model
-<img width="987" height="473" alt="image" src="https://github.com/user-attachments/assets/cbe1cdbb-8b18-4c19-97c6-be3e4244fb34" />
 
-Let us take Vgs-Vt=Vgt because we will be taking Vgs as large values. Current equation we will be using as shown above, For lower values of Vds we will neglect the 'lambda' term.</br>
-There is one more technology paramter which is "Vdsat", it is the velocity of gate when the device just enters the Velocity saturation region.</br>
-<img width="831" height="212" alt="image" src="https://github.com/user-attachments/assets/2e70d7d1-4891-4488-90e8-93f9b5f1322c" />
+<img width="844" height="471" alt="image" src="https://github.com/user-attachments/assets/c76a68ce-34a3-4506-985c-38f0073ea6e0" />
 
-<img width="1026" height="536" alt="image" src="https://github.com/user-attachments/assets/724c8f7e-e772-4006-9f39-05d7a8e06b56" />
+For Example If Vgt = Minimum value, that implies Vgs - Vt is minimum, that is Vds is at Highest, we are implying to the Saturation region.  
+<img width="738" height="405" alt="image" src="https://github.com/user-attachments/assets/532c27ac-45d5-4bbb-8688-28c0af72af6b" />
 
-<img width="1080" height="540" alt="image" src="https://github.com/user-attachments/assets/13ace523-0233-4dd0-802d-d1ab5f026de6" />
 
-<img width="1006" height="538" alt="image" src="https://github.com/user-attachments/assets/2d5432ec-2438-41c5-9b52-2f658a17c006" />
+Now Vds = minimum Values, that implies, smaller values of the Vds the device enters into resistive or linear region of operation. 
 
-<img width="1331" height="583" alt="image" src="https://github.com/user-attachments/assets/5a5755f0-0723-4aea-8f07-e277cf3fdf18" />
+<img width="751" height="398" alt="image" src="https://github.com/user-attachments/assets/1ed3b4c7-4b1b-48a5-bb6a-9567711112cd" />
 
-In the above equation, it seems when W is constant and L is lowered then Id should increase, But it is not so practically.</br>
+As the Vds is minimum, (1+Lamda(Vds)) will get neglected for its lower value.  will become almost one. 
 
-* **Observation 2** - The saturation current for lower nodes is low instead of being high. This is because Velocity saturation tends to saturate the device early so the peak current we see for lower nodes is much lesser than for higher nodes.</vr>
-<img width="1370" height="576" alt="image" src="https://github.com/user-attachments/assets/82010154-16a3-4079-a57c-e5a7435b9507" />
+
+Now Vdsat = minimum value, it will be applicable for short channel devices only. 
+
+<img width="864" height="496" alt="image" src="https://github.com/user-attachments/assets/1533e4d1-2247-4cb9-b467-d548fc850fb9" />
+
+In the above equation, it seems when W is constant and L is lowered then Id should increase, But it is not so practically.
+
+
+
+**Observation 2** 
+
+Velocity Saturation causes your device to saturate early. so the peak current we see for lower nodes is much lesser than for higher nodes. Peak current between higher device and lower device is different. For the same W/L ration of the MOSFET the peak current differs. 
+
+<img width="900" height="515" alt="image" src="https://github.com/user-attachments/assets/f4c0fb35-da4c-40b2-a888-a6673fbe9064" />
+
+
+open source tools to gets hands on SPICE 
+<img width="905" height="247" alt="image" src="https://github.com/user-attachments/assets/b3e8d302-ae5e-4ddc-b102-7d70f7db80f9" />
+
+
+
+
+
+
 
 ### L5 Labs Sky130 Id-Vgs
 We will now do simulation for lower nodes. Inside day2 design file.</br>

@@ -574,21 +574,85 @@ We can see that W and L values are in microns.</br>
 <img width="847" height="732" alt="image" src="https://github.com/user-attachments/assets/dce8cc37-f4bc-493f-9d61-8890ba35bd2a" />
 
 
+
+
+
 # NgspiceSky130-Day2-Velocity saturation and basics of CMOS inverter VTC
 
 ## SPICE simulation for lower nodes and velocity saturation effect
 
 ### L1 SPICE simulation for lower nodes
-We have seen the curve for Id vs Vds, for different values of Vgs.</br>
 
-<img width="1297" height="658" alt="image" src="https://github.com/user-attachments/assets/c10158ab-7588-4862-96a0-19125d4a3e25" />
+With W = 1.8u, L = 1.2u ( W/L = 1.5 ) 
 
-In the above graph the area left of curve; Vds=Vgs-Vt is Linear region as current is increasing linearly, the area right is Saturation region with slight increase in current due to velocity saturation and below is the Cut off region.Also this case is when the channel length is large.</br>
+* X axis plot which overlapping is at Vgs = 0V, as there is Id = 0 , means channel is not turned on.
+* All equations are plotted in the curve, while we vary the Vgs, we can plot it manually as well.
+  <img width="824" height="459" alt="image" src="https://github.com/user-attachments/assets/4e3d3d84-c9d2-48ce-8d41-b8e7cade4467" />
 
-Now we are taking different W and L, but the ration of W/L is same as previous, so the Id should not change. But this is not the case practically.</br>
-Below is the spice deck, where only the values of W and L is changed, rest everything remains same.</br>
+*   The left area of the curve represents different behaviour of MOSFET compared to the right area
+*   In the left region: Drain current is the linear function fo the drain to source voltage.
+*   In the Right region: Darin current is no more in linear region. it is in the function of ( 1 + (lamda)Vds)
+*   Before reaching the point (Vds = Vgs - Vt) Mosfet is in the resistive, liner region, and beyond it it is in Saturation region.
+*   In Satuartion region with slight increase in current due to velocity saturation and below is the Cut off region.Also this case is when the channel length is large.</br>
+<img width="914" height="522" alt="image" src="https://github.com/user-attachments/assets/a7967bcb-e06e-4e04-835e-3fa8318aa4d2" />
 
-<img width="872" height="442" alt="image" src="https://github.com/user-attachments/assets/09eec98c-92a0-409e-a6c5-5b2a18e8289d" />
+* Cut off region is the region/ area where your device is in cutt off.  here Vgs < Vt.
+
+* Lets take new Scenario, W = 0.375u, L = 0.25u device ( W/L = 1.5 )
+Note: As per the formulas, and the  per curve from last scenario, You will understand that when the W/L ratio is same / constant, you expect that the Ids will be same at any node ( of different W and L ), "BUT IT DOES NOT HAPPEN IN THE SAME WAY"
+
+To prove it, we will run the spice deck with the new W and L values. Keeping rest all the same from the previous. 
+
+<img width="342" height="175" alt="image" src="https://github.com/user-attachments/assets/1f93889f-c80b-47f9-8d60-29ec2dfd17bd" />
+
+Commads which are run : setplot, then dc1, display ( to know what all plots available ) , 
+
+then plot -vdd#branch ( - is given due to the difference in the direction of the conventional current flow vs flow of electrons ) 
+
+### L2 Drain current vs gate voltage for long and short channel device
+
+There is a quadratic dependence of Id at each Vg 
+1:00
+
+Based on the formula of saturation region, we can infer that the Drain current has quadratic dependence. 
+Drain current will quadratically increases with increase in the gate voltage. This is for the long channel MOSFET. 
+
+2:00
+
+For Short channel device: 
+
+Anything below 0.25u of length is know as short channel device. 
+There is quadratic difference upto a certain Vg, but after that there is a linear dependence. 
+
+Observing for  Drain current vs gate voltage for long and short channel device 
+for two different length channel devices. 
+
+4;34 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### L2 Drain current vs gate voltage for long and short channel device
 Let us compare the two simulations we did.

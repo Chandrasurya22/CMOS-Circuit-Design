@@ -1,4 +1,4 @@
-<img width="891" height="504" alt="image" src="https://github.com/user-attachments/assets/cf98a3a0-ac6d-414d-a710-32cfbea834c8" /># CMOS-Circuit-Design
+# CMOS-Circuit-Design
 # CMOS-Circuit-Design-Spice-Simulation-using-Sky130nm-technology
 
 ## Table Of Contents

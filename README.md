@@ -1,4 +1,4 @@
-# CMOS-Circuit-Design
+<img width="891" height="504" alt="image" src="https://github.com/user-attachments/assets/cf98a3a0-ac6d-414d-a710-32cfbea834c8" /># CMOS-Circuit-Design
 # CMOS-Circuit-Design-Spice-Simulation-using-Sky130nm-technology
 
 ## Table Of Contents
@@ -1223,35 +1223,30 @@ Rise Delay -- It says that the time required by the output capacitor to charge c
 
 <img width="893" height="502" alt="image" src="https://github.com/user-attachments/assets/65277ddf-c044-4b31-8d60-d9a4648223db" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### L6 Applications of CMOS inverter in clock network and STA
-The final data set we got from above experiment is shown below:
 
-<img width="692" height="236" alt="image" src="https://github.com/user-attachments/assets/0359ac26-996d-423d-bd27-99e08b6dddaa" />
+Observations from the above experiment : 
+* If you vary the PMOS size, lets say from 2times or 3 times the width of the NMOS, we can observe there is no much diffference in the Vm voltage. Hardly a 50 mV difference. With this we can say that During Fabrication, there can be slight variation in sizes of PMOS and NMOS from the expected one. But the robutness of CMOS inverter is such that, there is not much difference in the Vm with change in sizes.
 
-There are some conclusions we draw from this experiment: </br>
-* During fabrication, there can be slight variation in sizes of PMOS and NMOS from the required one, but the robustness of CMOS inverter is such that, there is not much difference in the Vm with change in sizes.
-* When (W/L)p = 2(W/L)n, we see that RISE-FALL delay are approximately equal, if we simulate then we can get the ratio factor such that the Rise delay and fall delay are equal to each other. This shows "Symmetry" of CMOS inverter.
-  
-  *This is a typical characteristic of Clock Inverter/buffer where we want the rise delay and fall delay to be equal.* </br>
-  <img width="1110" height="653" alt="image" src="https://github.com/user-attachments/assets/30d33241-5e2f-4389-9a80-cd8d2ad5baaf" />
-* Other types of cells can be used according to the data path requirement
+
+* When (W/L)p = (2W/L)n, in this case we can see that the rise delay and the fall delay is approximately equal, if we design the CMOS with Switching threshold Vm = 1.22.. or 1.23 we can obtain the eqaul rise and fall delay  and form a Symmetry cell.
+
+*This is a typical characteristic of Clock Inverter/buffer where we want the rise delay and fall delay to be equal.*
+<img width="891" height="494" alt="image" src="https://github.com/user-attachments/assets/47f857aa-9d85-44e0-8769-6bc423a0c1e5" />
+
+<img width="876" height="498" alt="image" src="https://github.com/user-attachments/assets/ba9f1278-f678-4f68-b558-3aa4f4b64937" />
+
+
+<img width="887" height="456" alt="image" src="https://github.com/user-attachments/assets/ee83a974-17c9-4861-8e05-90cba426f695" />
+Other types of cells can be used according to the data path requirement
+
+
+<img width="897" height="503" alt="image" src="https://github.com/user-attachments/assets/c34a52a3-96d0-4781-9a0d-590979e470b1" />
+
+Revisit this last video again. 
+
+
+
 
 # NgspiceSky130-Day4-CMOS Noise Margin robustness evaluation
 

@@ -1488,49 +1488,36 @@ Due to low supply voltage, the charging and discharging of load capacitor become
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### L3 Sky130 Supply variation Labs
-We will calculate the supply variation.
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/94a3c1ba-3139-4838-b302-2320ce3f643e" />
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/56419121-44bb-4f73-9084-06b1503b6544" />
+We will calculate the supply variation. 
+<img width="1840" height="1199" alt="image" src="https://github.com/user-attachments/assets/f7e1c066-70d8-4c5a-8523-fb36832066e9" />
+
+<img width="1845" height="1122" alt="image" src="https://github.com/user-attachments/assets/0a15fcb6-4d58-4f70-bf13-71d1fd66e46c" />
 
 The initial supply voltage is 1.8V and we are reducing it with the step of 0.2V, so there will be 6 iterations.
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/af291d32-1484-4d6b-8291-dabc5b70df65" />
-We will calculte the Gain: </br>
+<img width="1874" height="1198" alt="image" src="https://github.com/user-attachments/assets/c575397f-d4d1-40c3-863e-ef50fa49231b" />
 
-* **Vdd=1.8V** </br>
+<img width="1855" height="1199" alt="image" src="https://github.com/user-attachments/assets/043fea75-f0cb-4989-9697-9f485fb1da56" />
 
-  <img width="292" height="61" alt="image" src="https://github.com/user-attachments/assets/0f2c56cc-5fb4-4c1e-9e49-0e7ee75b964b" />
+<img width="1849" height="1109" alt="image" src="https://github.com/user-attachments/assets/a103d9ba-a5d0-429d-b643-8713bbd65cbd" />
 
-  |Gain| = 7.6229 </br>
+We shall calculate the gain : 
 
-* **Vdd=0.8V**
+**For Vdd = 1.8V ** 
 
-  <img width="267" height="52" alt="image" src="https://github.com/user-attachments/assets/112695f4-b69a-4c76-bd41-a066a08ac6b7" />
+<img width="345" height="124" alt="image" src="https://github.com/user-attachments/assets/5cfe91c5-7553-4cda-9937-6d6eac298ade" />
 
-  |Gain| = 9.3844 </br>
-_____________________________________________________________________________________________
+|Gain| = 8.272 
 
+** For Vdd = 0.8V ** 
+
+<img width="290" height="100" alt="image" src="https://github.com/user-attachments/assets/9c4c7cf6-f926-4ec6-b530-56511a8f5f0d" />
+
+|Gain| = 9.832
+
+![Uploading image.png…]()
 
 ## Static behaviour evaluation-CMOS inverter robustness-Device variation
 
@@ -1646,34 +1633,21 @@ The CMOS inverter the operation of gate is kept intact, This Inverter can be use
 
 
 
-
-
-
-
-
-
-
-
----- Need to do Simulations.. 
-
-
-
-
-
-
 ### L5 Sky130 device variations labs
-We will now do the SPICE simulations for the device variations</br>
 
-<img width="1912" height="1079" alt="Screenshot 2025-10-03 231604" src="https://github.com/user-attachments/assets/5b26708d-6351-4aa8-b2d2-758a174a6f8b" />
-<img width="1919" height="1079" alt="Screenshot 2025-10-03 231715" src="https://github.com/user-attachments/assets/518ac3f8-9460-49ab-943e-e09cc37ca4ac" />
+We will now do the SPICE simulations for the device variations
 
-We can see that the width of PMOS is quite large than that of NMOS. SO it is clearly strong PMOS and weak NMOS case. The Vm will be right shifted.</br>
+<img width="1864" height="1186" alt="image" src="https://github.com/user-attachments/assets/689046f5-6fe7-4f61-a2cf-71736d009ff2" />
 
-<img width="1919" height="1079" alt="Screenshot 2025-10-03 231914" src="https://github.com/user-attachments/assets/ef15e759-7036-445a-b5b1-53b0df38050a" />
+<img width="1841" height="1102" alt="image" src="https://github.com/user-attachments/assets/73cbdcce-7125-4715-8097-c306d6075fa5" />
 
-<img width="1919" height="1079" alt="Screenshot 2025-10-03 232247" src="https://github.com/user-attachments/assets/841f9eea-395a-4213-93c5-8e5a06de59f0" />
+We can see that the width of PMOS is quite large than that of NMOS. The Vm will be right shifted.So it is clearly strong PMOS and weak NMOS case.
 
+<img width="1843" height="1194" alt="image" src="https://github.com/user-attachments/assets/54d7716c-aed9-49ab-9a73-0683767d0feb" />
 
+<img width="1867" height="1199" alt="image" src="https://github.com/user-attachments/assets/db7dd7d2-8a15-4cca-892f-80ca45b98630" />
+
+<img width="292" height="82" alt="image" src="https://github.com/user-attachments/assets/f0e45d6d-22ca-434b-9781-35e317822ce6" />
 
 
 

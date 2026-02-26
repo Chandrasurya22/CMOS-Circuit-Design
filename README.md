@@ -1404,66 +1404,97 @@ We will take the point where the slope is -1 ; x axis will give VIL and VIH, whe
 
 ### L1 Smart SPICE simulations for power supply variations
 
+We will scale the Supply voltage, if you are working or moving from the 250 nm to 20 nm. or if you are earlier operating at 1V now they operate in 0.7mV. We have the situation to scale the Power supply ( lets say low voltage applications ), in such cases CMOS  inverter should not change. 
+While evaluating the robustness of CMOS inverter another factor is **Power Supply Scaling**. On reducing the gate length, the operating power is also reduced. On power scaling the Cmos characteristics should not change.
+
+We need to take inverters, as below. 
+<img width="271" height="210" alt="image" src="https://github.com/user-attachments/assets/724139f4-36be-4ed9-949e-764e13afd588" />
+
+We will take another inverter and sweep the supply voltage from the 2.5V to 1V, in this experiment the goal is that CMOS inverter behavior should not change. 
+<img width="816" height="252" alt="image" src="https://github.com/user-attachments/assets/a18ceab8-bc4d-4852-abe6-e287aa84d1b7" />
+
+If we consider the scenario there will be multiple spice netlists. or in another way we can take the single spicelist ( SMART Netlist) 
 
 
+<img width="605" height="478" alt="image" src="https://github.com/user-attachments/assets/a85b5648-a3b9-4486-b928-2ec2e97599ba" />
+The first section of the spice netlist remains the same. 
+ Now in the next section, 
 
+ Anything between the '.control'  and '.endc' we can do any scripting here. For example we can use do while loop like that. 
 
+<img width="556" height="294" alt="image" src="https://github.com/user-attachments/assets/3b8dff90-c69c-4709-a3d7-daad9d0c1f7f" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# NgspiceSky130-Day5-CMOS power supply and device variation robustness evaluation
-
-## Static behaviour evaluation-CMOS inverter robustness-Power supply variation
-
-### L1 Smart SPICE simulations for power supply variations
-While evaluating the robustness of CMOS inverter another factor is **Power Supply Scaling**. On reducing the gate length, the operating power is also reduced. On power scaling the Cmos characteristics should not change.</br>
-
-We will check by simulation, taking two cases.
-
-<img width="1172" height="328" alt="image" src="https://github.com/user-attachments/assets/03dcd0b9-4dd3-4762-83b2-9cbb882e7bc3" />
-<img width="723" height="442" alt="image" src="https://github.com/user-attachments/assets/e403056b-c4bb-4b18-a67c-baf5b02842ab" />
-<img width="717" height="436" alt="image" src="https://github.com/user-attachments/assets/f357c6d2-fa02-43bc-bf51-184494cf8858" />
-<img width="421" height="171" alt="image" src="https://github.com/user-attachments/assets/25f4e021-6818-4e30-85d9-cf300b35bd03" />
+*  'let' is similar to 'set'  , let is used to set a variable
+*  'alter' in this case, it wil alter the value of default Vdd to anything which we have assigned.
+*  dc simulation happens fro the Vin
+*  'dowhile' the assigned variable ( VoltagSupplyVariation) reached the value 5
+    The reason: in steps of 5, we will reduced the power supply from 2.5 with a decrement of 0.5 each step 
+*   alter Vdd = powerSupply , it will set the new powersupply on the fly to Vdd.
+*   Since we know that there will be 5 DC plot we have given plot dc1. out vs in, plot dc2. out vs in and so on.
+*   We also gave the labels for the axes.
+*   We can also add and write comnplex scripting. 
+<img width="595" height="245" alt="image" src="https://github.com/user-attachments/assets/f9216037-2fc4-4860-b791-eeef634732f2" />
 
 We will now plot the VTC charactersitics for Vdd= 2.5V, 2V, 1.5V, 1V, 0.5V;
 
-<img width="742" height="568" alt="image" src="https://github.com/user-attachments/assets/87cf496c-6386-4374-9e92-1a6ef71959c1" />
+<img width="549" height="435" alt="image" src="https://github.com/user-attachments/assets/6e4c189c-9a8a-4724-a68e-f93ebf51bcaa" />
+
+<img width="780" height="508" alt="image" src="https://github.com/user-attachments/assets/3fca5731-6cb9-4799-8db7-14f08f7f6f2b" />
 
 ### L2 Advantages and disadvantages using low supply voltage
-We will now analyse the curves we got in after the simulation and see what are the advantages and disadvantages using low supply voltage.</br>
-The first factor is to check the "Gain" for all the supply voltages. "Gain Factor" is change in the output voltage divided by change in the input voltage.
 
-<img width="968" height="516" alt="image" src="https://github.com/user-attachments/assets/dd11da87-d570-4fe1-9439-bd449e39af6a" />
+We will now analyse the curves we got in after the simulation and see what are the advantages and disadvantages using low supply voltage.
+* CMOS inverter can able to operate at as low as 0.5V.
 
-<img width="976" height="547" alt="image" src="https://github.com/user-attachments/assets/102b9c1b-82ce-4d72-bc7e-fb502591c636" />
+**Gain Factor: **
+* Gain is the change in output voltage / change in input voltage.
+<img width="820" height="432" alt="image" src="https://github.com/user-attachments/assets/ce86abd9-d02c-4722-8985-a88cf2cd1b19" />
 
-There is energy lowering for low supply voltage.
+<img width="838" height="421" alt="image" src="https://github.com/user-attachments/assets/82c3850a-9e74-4c56-abfc-27f52fdb87ac" />
 
-<img width="1000" height="526" alt="image" src="https://github.com/user-attachments/assets/f9a05a5f-40c0-4bad-be1f-3cd16f1445f4" />
-<img width="927" height="527" alt="image" src="https://github.com/user-attachments/assets/b96be82f-5993-4fd1-9cc2-c0756dc212df" />
 
-* Advantages of low supply voltage
-  
-<img width="722" height="212" alt="image" src="https://github.com/user-attachments/assets/ab3ef568-d3f7-44cb-a6c5-6524ba5b72ec" />
+**Energy Factor** 
+* Energy = 1/2 * C* V * V ( C = output load capacitance, V = voltage )
+<img width="846" height="413" alt="image" src="https://github.com/user-attachments/assets/1d0713a6-d039-4e97-930b-1206f5796169" />
+
+<img width="835" height="498" alt="image" src="https://github.com/user-attachments/assets/7bfcae1c-2f55-42d0-a69a-c16e8a78ef77" />
+
+
+The disadvantages:
+
+* The rise delay and fall delay, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 * Disadvantages of low supply voltage
   Due to low supply voltage, the charging and discharging of load capacitor becomes very slow, due to this the Both rise delay and fall delay will increase and lead to a performance impact.

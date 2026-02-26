@@ -1236,80 +1236,149 @@ Observations from the above experiment :
 
 <img width="876" height="498" alt="image" src="https://github.com/user-attachments/assets/ba9f1278-f678-4f68-b558-3aa4f4b64937" />
 
+Snippet from the clock tree synthesis
+This is the structure that how the clock buffer looks like, the PMOS size is equal to NMOS here and it is made in such a fashion that their resistances matches
+
+Here in the below case, the resistance of the PMOS is 2.5 times the resistance of NMOS. 
+<img width="902" height="523" alt="image" src="https://github.com/user-attachments/assets/39190656-6496-4f76-beeb-f7280f697ae7" />
+
+When you replace the normal inverter by a clock inverter 
+you get the equal pulse, you will achieve the symmetry. At the output you got the pulse shape waveform which is equal to what you have feed input. 
+<img width="895" height="520" alt="image" src="https://github.com/user-attachments/assets/98e5c2e5-a365-41cd-affe-e56f90951353" />
+
+
+
 
 <img width="887" height="456" alt="image" src="https://github.com/user-attachments/assets/ee83a974-17c9-4861-8e05-90cba426f695" />
-Other types of cells can be used according to the data path requirement
 
+The unequal rise and fall delay cells, can still be used in the data paths. 
+Other types of cells can be used according to the data path requirement
 
 <img width="897" height="503" alt="image" src="https://github.com/user-attachments/assets/c34a52a3-96d0-4781-9a0d-590979e470b1" />
 
-Revisit this last video again. 
-
-
+So lets say as mentioned in the picture, if the SLACK should be +v or 0 == its data arrival time should be less than the data required time. For example if the data required time goes below or less than the data arrival time, in this case you can add the clock cells with higher delay in the data arrival time to make it delay and match the condition. 
 
 
 # NgspiceSky130-Day4-CMOS Noise Margin robustness evaluation
 
 ## Static behaviour evaluation-CMOS inverter robustness-Noise Margin
-
 ### L1 Introduction to Noise Margin
-Now we will learn CMOS inverter's robustness towards the Noise Margin. Also we see the Noise margin evaluation for CMOS inverter. </br>
-**Noise Margin**: It is a measure of how much unwanted electrical noise a logic circuit can tolerate on its input without producing an incorrect output. </br>
 
-For example if we consider an ideal Inverter, for inputs 0/1 it gives output as 1/0. The slope of switch is infinite. </br>
+Nosie Margin is related to the Glitches, cross talk margins. We will understand CMOS's inverter's robustness towards the Noise Margin. 
 
-<img width="557" height="451" alt="image" src="https://github.com/user-attachments/assets/2465a4e2-199d-4698-aa7d-58f0b42f0c6f" />
+**Noise Margin**: It is a measure of how much unwanted electrical noise a logic circuit can tolerate on its input without producing an incorrect output.
 
-But practically the slope won't be infinite, due to presence of resistances and capacitances there will be delay. Therefore we will get a finite slope </br>
+For example, consider a saftey bufffer against electrical disturbances. If the noise on a wire exceeds this defined margin, the circuit risks flipping to an incorrect logic state, leading to corrupted data. 
 
-<img width="368" height="316" alt="image" src="https://github.com/user-attachments/assets/f8f2f3f3-dc21-45eb-90b7-c9f2fdb8ef94" />
+Now consider an ideal inverter. if you provide logic low level at input you will get logic high and vice versa. 
+If we plot the characteristics on a graph it is as below: 
+<img width="575" height="365" alt="image" src="https://github.com/user-attachments/assets/9f7f9e69-0da1-4724-8de9-2987d54b2a58" />
 
-We will now see that whenever the input is between 0 to VIL(input low voltage); the output will be VOH(output high). </br>
-And whenever the input is between VIH(input high voltage) and Vdd; output will be VOL(output low voltage). </br>
-<img width="405" height="342" alt="image" src="https://github.com/user-attachments/assets/8e3c22bf-b012-4a75-a08d-910511ed2980" />
+At the half the voltage (Vdd)/2, you can see there is a Switch is happening. 
+The slope should be infinite in this ideal case. The change in output voltage is Vdd and change in input voltage is 0. so that is the reason the slope is infinite. 
+
+More practical scneario: 
+
+In practical reasons, with precense of PMOS and NMOS in inverter. We have some real resistance and capacitance in the practical inverter. Here the line will be with a slope. this is beacuse you have finite resistances and capacitances, hence output takes time to move / drop from Vdd to around 0 V 
+
+Here the slope is Finite Slope. 
+<img width="668" height="422" alt="image" src="https://github.com/user-attachments/assets/f0c3c03d-b254-43aa-abbb-c153b7d5df65" />
+
+VIL = Whenever your input votage lies between 0 and VIL ( input Low Voltage ) , we expect the output to be HIGH. 
+
+VIH = If any input voltage that lies above VIH ( input High Voltage)  and below VDD, we expect the output to be LOW. 
+<img width="681" height="451" alt="image" src="https://github.com/user-attachments/assets/94425b5c-9a28-4356-b69e-e9223ec8460c" />
+
+<img width="687" height="459" alt="image" src="https://github.com/user-attachments/assets/b657e50f-0e81-4a18-a2bc-9a0d628d7dc7" />
+
 
 ### L2 Noise Margin voltage paramters
-Considering the more practical scenarios and non idealities of an inverter, the curve we get is as shown below. So here the when the 0<Vin<VIL --> output is VOH<Vout<Vdd ; and when the input is VOL<Vin<Vdd --> output is 0<Vout<VOL. Also **VOL<VOH<Vdd** as VOH will be output high for the next inverter which will be connected and **0<VOL<VIL** as it will be the output low for the next inverter. </br>
 
-Also, the slope is approximately -1, as for increase in input, output is reducing. </br>
 
-<img width="356" height="337" alt="image" src="https://github.com/user-attachments/assets/d848d4c0-de9b-4b6b-8c6a-f3006bae557c" />
+The VOL the should be and expected to be in the range of ( 0 to VIL ), as output of this inverter will be feed as an input to another logic. and the input of the another logic to detect the logic '0' it has to be in the range between 0 and VIL. 
+
+We can infer that VOL < VIL. 
+
+example: 
+as this inverter will be connected to another inverter, which is expecting the VIL to turn HIGH, so we need to take care that the expected VIL for the next inverter is within the range. 
+
+* For this inverter, when your input lies in this range 0 to VIL , your output is expected to be VOH and above ( detected as LOGIC 1 ) . 
+
+Similarly, VOH > VIH : VOH should be at a point greater than VIH, so as this inverter can feed input to another logic which is expecting the logic HIGH / detect the logic HIGH.  
+
+Slope = -1. (ex: moving from  Vin: 100 to 200, and Vout :900 to 800 , slope  = -100/100 = -1) 
+
+<img width="672" height="383" alt="image" src="https://github.com/user-attachments/assets/e95e8556-e378-4217-a158-152d6eed5e91" />
+
 
 ### L3 Noise margin equation and summary
-Now we will calculate the noise margin equation, for that we will plot the voltages on the same scale.</br>
 
-<img width="733" height="443" alt="image" src="https://github.com/user-attachments/assets/c25a3266-d8f3-4e16-8afa-298756b3a59d" />
-In the above scale: </br>
-* **Noise amrgin High NH** - value between VIH and VOH. </br>
-* **Noise Margin Low NL** - value between VIL and VOL. </br>
+Noise margin will define the input voltage range and output voltage range and its ranges.
+Lets calculate the Noise Margin equation, for that we will plot the voltages on the same scale.
 
-So, any value which lies in between noise margins is considered either 1/0 and considered to be tolerable. Apart from this region the value is "Undefined" and the logic level can swing between 'high' and 'low'.
 
-<img width="783" height="423" alt="image" src="https://github.com/user-attachments/assets/80791538-0e36-46a8-9bf1-043e740dd778" />
+<img width="691" height="471" alt="image" src="https://github.com/user-attachments/assets/9330fd26-fa67-4f9e-8056-810f5f35f283" />
 
-<img width="822" height="481" alt="image" src="https://github.com/user-attachments/assets/6443e129-644a-4d0d-a4c4-0439ba4165de" />
+
+**Noise Margin HIGH NMH** - Any voltage level lies between VIH and VOH. 
+**Noise Margin LOW NML** - ANy voltage level lies between VIL and VOL.
+
+These above ranges are known as tolerable range. That is, if the noise that are induced in this range it wont effect your circuit/logic. It will stil treated as the respective logic.  
+
+Between the VIL and VIH is knwon as Undefined Region - it can be either logic 1 or logic 0 
+
+<img width="1002" height="616" alt="image" src="https://github.com/user-attachments/assets/b6a2927a-03b4-41df-9ad6-b2f5eb01fc3b" />
+
 
 ### L4 Noise margin variation with respect to PMOS width
-We will evaluate the noise margin depending upon the PMOS width and ultimately prove that how CMOS inverter is robust to the noise margins.</br>
-First, we will find the points where the slope = -1 and extend the lines towards x-y axis.</br>
 
-<img width="1207" height="542" alt="image" src="https://github.com/user-attachments/assets/5ab8cb26-4ab7-4e77-9a04-be82cfcdac12" />
-The larger the Noise margin, stronger is CMOS inverter and immune to Noises.</br>
+The purpose of this experiment is to find out, if you vary the PMOS size with respect to the NMOS size by some interger, who does the nosie margin NMH and NML. 
+We have to prove that the CMOS inverter is robust to the Nosie variations. 
+First, we will find the points where the slope = -1 and extend the lines towards x-y axis.
 
-<img width="1175" height="523" alt="image" src="https://github.com/user-attachments/assets/98daed0b-5528-4d72-8a99-06806511d1b8" />
-<img width="1197" height="503" alt="image" src="https://github.com/user-attachments/assets/89b5f850-df64-4e6e-abcb-366cc3755d13" />
-<img width="1203" height="517" alt="image" src="https://github.com/user-attachments/assets/13199ec4-704c-4812-aba2-38257330e40b" />
+* For PMOS width = NMOS width 
 
-For (W/L)p=4(W/L)p and (W/L)p=5(W/L)p noise margins are same, so even if we increase the widths further noise margin will be static. 
+<img width="895" height="510" alt="image" src="https://github.com/user-attachments/assets/8ef5ab24-7dde-4464-b1bf-31b598a81ae4" />
 
-<img width="677" height="226" alt="image" src="https://github.com/user-attachments/assets/fca7bcac-471c-4114-8c64-4b97cba1f5b0" />
+The broader the range of the Noise margin, the more immune it is to the noise. Through this we can say that hte CMOS inverter is immune to the Noise. 
 
-Here also we can verify the robustness of CMOS inverter. </br>
 
-Also we come to know the ranges for "Digital design" and "Analog design" in the CMOS inverter.</br>
+* For PMOS width = 2 * NMOS width
+ <img width="880" height="498" alt="image" src="https://github.com/user-attachments/assets/6c87fa02-d3eb-4b62-a4e1-eacde5371721" />
 
-<img width="741" height="546" alt="image" src="https://github.com/user-attachments/assets/3e9a0cf6-a232-4ff2-ad4c-214b03803af3" />
-<img width="772" height="542" alt="image" src="https://github.com/user-attachments/assets/56c5c94d-b59f-456c-ba92-b22fab03b6d9" />
+The PMOS is the one responsible for holding the charges on the capacitance. PMOS is the one that keeps the capacitance charged. When you increase the PMOS size, it create the low resistance path from supply to the capacitance. As a result of that it's able to hold the charges for longer amount of time. Also we can observe that the noise margin high has increased ( but has limitations) . 
+
+* For PMOS width = 3 * NMOS width.
+<img width="879" height="502" alt="image" src="https://github.com/user-attachments/assets/defca32b-93aa-4308-8898-bfad6e978e71" />
+
+PMOS is responsible for holding the logic 1 on output capacitor. 
+NMOS is the one responsible for holding the logic 0 on output capacitor. 
+That is the reason if you increase the PMOS width you can observe increase in the Noise margin 
+
+
+* For PMOS width = 4 * NMOS width
+  <img width="891" height="495" alt="image" src="https://github.com/user-attachments/assets/dc4df219-2d8f-4444-b7cf-81d07e5a2731" />
+
+There is only a 20milli increase in the NMH, we can say that there are limitation for the Noise margins, we cannot expect to increase the Noise margin for every increase in the PMOS size. 
+Also in this case the PMOS has become so strong than NMOS, As a result of this, there is a drop in the NMOS Noise Margin. Ability to hold logic 0 for the NMOS has dimininished beccause of the strong PMOS present on top of it. 
+
+* For PMOS width = 5 * NMOS width
+<img width="885" height="514" alt="image" src="https://github.com/user-attachments/assets/949c8e2b-a444-439a-b084-4f2ce1e8d5e4" />
+
+The NMH has reached to the Static point. NML has not effected more. 
+
+<img width="629" height="252" alt="image" src="https://github.com/user-attachments/assets/759336ec-894e-44da-916a-3e61423c7782" />
+
+Through the above table we can verify the robustness of the CMOS inverter. 
+<img width="637" height="475" alt="image" src="https://github.com/user-attachments/assets/e045f1ad-3c72-4016-b3d2-ab0f9e7b5a42" />
+
+<img width="660" height="416" alt="image" src="https://github.com/user-attachments/assets/0ad20690-43fc-4922-ae10-641546f907dc" />
+
+### L5 Sky130 Noise margin labs
+
+pending. 
+
+
 
 ### L5 Sky130 Noise margin labs
 We will now plot Noise margins
@@ -1327,6 +1396,39 @@ We will take the point where the slope is -1 ; x axis will give VIL and VIH, whe
 
 **Noise margin NH = VOH - VIH = 1.70952-0.98778 = 0.72** </br>
 **Noise margin NL = VIL - VOL = 0.7733-0.09523 = 0.67807** </br>
+-----------------------------------------------------------------------------------------------
+
+# NgspiceSky130-Day5-CMOS power supply and device variation robustness evaluation
+
+## Static behaviour evaluation-CMOS inverter robustness-Power supply variation
+
+### L1 Smart SPICE simulations for power supply variations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # NgspiceSky130-Day5-CMOS power supply and device variation robustness evaluation
 

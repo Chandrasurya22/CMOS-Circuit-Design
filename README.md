@@ -1459,10 +1459,32 @@ We will now analyse the curves we got in after the simulation and see what are t
 
 <img width="835" height="498" alt="image" src="https://github.com/user-attachments/assets/7bfcae1c-2f55-42d0-a69a-c16e8a78ef77" />
 
+The Advantages: 
+
+<img width="888" height="197" alt="image" src="https://github.com/user-attachments/assets/4526cf7c-f63b-48aa-9bae-a2a9bc4b8e39" />
+
 
 The disadvantages:
 
-* The rise delay and fall delay, 
+* The rise delay and fall delay, for CMOS inverter with a supply of 2.5V, we will get a rise delay = 66ps and fall delay = 78ps, as soon as the supply votlage is reduced and kept everything as constant, we will understand that for charging the same capacitor this supply voltage is not enough.
+<img width="834" height="415" alt="image" src="https://github.com/user-attachments/assets/9f985ff2-d558-43ff-89d9-9490bbca2688" />
+
+* As the Supply voltage is 0.5V, we will observe that the Capacitor/device neither charges full nor discharges. The rise time is not sufficent enough to charge output load capacitance to 0.5V. This is a Major disadvantage. 
+
+*   In this case the device might not even operate as expected, that means the device operating at 0.5V needs some extra time to perform the same actions that the device operating with 2.5V.
+*   When you have 2.5V, you will have enough space , enough supply for the output load capacitance to charge.
+
+<img width="873" height="422" alt="image" src="https://github.com/user-attachments/assets/65ef11cf-817c-44c2-a591-38201ae558b6" />
+
+<img width="842" height="418" alt="image" src="https://github.com/user-attachments/assets/78ea4934-168d-4d94-8eef-2c722e26d477" />
+<img width="834" height="421" alt="image" src="https://github.com/user-attachments/assets/688a0c3e-7dbb-406c-b06e-577a3080ca1e" />
+
+Due to the huge difference in the Rise delay and fall delay, that is a performance impact. which is the main disadvantage. 
+
+
+Though, we have a significant advantage, we have Performance impact as a major disadvantage on the other side. 
+
+Due to low supply voltage, the charging and discharging of load capacitor becomes very slow, due to this the Both rise delay and fall delay will increase and lead to a performance impact.
 
 
 
@@ -1484,20 +1506,6 @@ The disadvantages:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-* Disadvantages of low supply voltage
-  Due to low supply voltage, the charging and discharging of load capacitor becomes very slow, due to this the Both rise delay and fall delay will increase and lead to a performance impact.
 
 ### L3 Sky130 Supply variation Labs
 We will calculate the supply variation.
@@ -1521,66 +1529,137 @@ We will calculte the Gain: </br>
   <img width="267" height="52" alt="image" src="https://github.com/user-attachments/assets/112695f4-b69a-4c76-bd41-a066a08ac6b7" />
 
   |Gain| = 9.3844 </br>
+_____________________________________________________________________________________________
+
 
 ## Static behaviour evaluation-CMOS inverter robustness-Device variation
 
 ### L1 Sources of variation - Etching process
-We will see the sources of variation of VTC characteristics in a CMOS inverter.</br>
-First is **Etching Process** </br>
-If we see a single inverter layout, we will see the length of gate, the width(common area between polysilicon and diffusion). Due to etching process there can be a variation in length and width of CMOS.
+Here in this module we will identify the sources for the variation of the CMOS device. 
 
-<img width="1208" height="580" alt="Screenshot 2025-10-03 203231" src="https://github.com/user-attachments/assets/f4496266-b2a9-4e21-bb84-54e6519478e4" />
+**Etching Process**
+* Etching - A fabrication step, this is the process which actually defines the structure, it defines the width and heights of the structure, a very important step. Based on the structure it gets defined, it directly impacts the delay.
 
-Now considering the inverter chain, the variation can differ with different inverter.
+<img width="833" height="420" alt="image" src="https://github.com/user-attachments/assets/69653321-0210-4ccf-a8ef-e29613168fc8" />
 
-<img width="1288" height="652" alt="Screenshot 2025-10-03 203314" src="https://github.com/user-attachments/assets/a326d12c-e0b7-4daa-bf13-311ccaa8e476" />
-<img width="1121" height="618" alt="Screenshot 2025-10-03 203404" src="https://github.com/user-attachments/assets/8683fe6c-a634-4720-98d4-8ef619ab52b1" />
+
+* Blue lines indicate the metals, Green indicate - P Diffusion , Yellow indicate - N diffusion, Red represent the poly silicon area,  the cross symbol is the contacts.
+
+* These shapes are achieved through the etching process.
+* The Length L defines at which technology node we are, ( 20nm, 10nm etc )
+* Width W identifies the overlap Area of gate on the P diff region. we can also observe the gate at PMOS and NMOS. 
+
+<img width="317" height="461" alt="image" src="https://github.com/user-attachments/assets/7be09fa2-925c-496b-bed8-7f224ce6c132" />
+
+
+**Chain of Inverter** 
+Fabricate a Chain of Inverter: 
+
+<img width="880" height="501" alt="image" src="https://github.com/user-attachments/assets/27718d11-9c0d-415a-a496-94185c9a9ea6" />
+
+
+Taking a single Inverter and observering it 
+
+We can observe the ideal Mask and Actual Mask, where Actual mask will be differnet to what ideal parameters, the width and length will be distorted. 
+
+<img width="727" height="506" alt="image" src="https://github.com/user-attachments/assets/52a86073-f32a-4acc-893b-93d7d3da7328" />
+
+Now observe, this actual mask of variation is for one single inverter. We can see this type of the variation happening a lot to the chain of inverters which are fabricated on a chip. We can find the similar kind of different distortion happening. 
+
+<img width="854" height="485" alt="image" src="https://github.com/user-attachments/assets/5c2c7813-b81f-4312-8cec-d29844f5493f" />
 
 The variation is more at the edges or sides than at the center.
+<img width="881" height="479" alt="image" src="https://github.com/user-attachments/assets/9048c34d-91a0-4370-ab99-5ca8f619be87" />
 
-<img width="1324" height="621" alt="Screenshot 2025-10-03 203542" src="https://github.com/user-attachments/assets/998d8d7c-941f-4643-a768-13896c578018" />
+<img width="896" height="513" alt="image" src="https://github.com/user-attachments/assets/add1f9c3-b9fb-4d64-9f20-6aba5013254f" />
 
-Therefore the variation in L and W can change the drain current of CMOS inverter.
+Drain current equation of any gate, MOSFET or of any transisitor 
+<img width="694" height="164" alt="image" src="https://github.com/user-attachments/assets/f7e7d3fe-c663-4ca1-97b3-e73dfdc77ef7" />
 
-<img width="926" height="483" alt="Screenshot 2025-10-03 203633" src="https://github.com/user-attachments/assets/b1c7130a-de89-4cf1-ab2e-064702878082" />
+You can see the drain current is directly related to the W/L 
+
 
 ### L2 Sources of variation - Oxide thickness
-Another source of variation is **Oxide Thickness*</br>
-Let us consider the cross-sectional view of CMOS inverter. We will see the oxide under polysilicon gate, while fabricating the thickness can vary.</br>
+Another source of variation is **Oxide Thickness**
+We are looking at the cross sectional view of the Transistor. We will see the oxide under polysilicon gate, while fabricating the thickness can vary.
 
-<img width="1318" height="561" alt="Screenshot 2025-10-03 203747" src="https://github.com/user-attachments/assets/25b705ca-1d73-4127-a9bc-a69e2af0c8c2" />
-<img width="826" height="377" alt="Screenshot 2025-10-03 203848" src="https://github.com/user-attachments/assets/df455509-4718-4074-9eda-bb314e6462c0" />
+<img width="885" height="504" alt="image" src="https://github.com/user-attachments/assets/4d2fd766-0088-4d36-a2a3-3ce496fc50cc" />
 
+Now we are checking on the oxide thickness variation here. 
 There is a difference between ideal thickness and actual thickness.
 
-<img width="1205" height="597" alt="Screenshot 2025-10-03 203924" src="https://github.com/user-attachments/assets/a802cce3-df91-4e80-9b34-d2f931de9f8d" />
+
+Taking one transistor from the chain of inverters and chekcing it through the cross sectional area. 
+<img width="876" height="496" alt="image" src="https://github.com/user-attachments/assets/ec377313-71d3-4f9b-86a5-32a9ecaf0d7d" />
+
+In the real Fab world, the process wont stay ideal, so the oxide thickness is not constant around the Gate length. Simiarly, there wil be Oxide thickness variation for the pool of transistors. 
+<img width="872" height="487" alt="image" src="https://github.com/user-attachments/assets/31309077-ed1c-40a6-aa9d-c84f5073ec26" />
+
+There will be variations for all the transistors. 
+There will be minimal variations in the transistors in the middle compared to the transistors in the sides as they are exposed for the other structures 
+
 
 We know **Cox=Eox/tox**, therefore change in tox can actually change the drain current.
 
-<img width="1162" height="461" alt="Screenshot 2025-10-03 204044" src="https://github.com/user-attachments/assets/d06ee6da-3467-41cb-8a0e-280b15faae56" />
+<img width="835" height="417" alt="image" src="https://github.com/user-attachments/assets/3fec37f8-bb00-4200-8887-581e4244a16b" />
+
 
 ### L3 Smart SPICE simulation for device variations
-Now we will be doing the SPICE simulation for device variations, and prove the robustness of CMOS inverter inspite of different extreme conditions.</br>
-We will see the characteristics for Strong PMOS and week NMOS, this means PMOS width is wider and it has least resistance. Also for weak PMOS and strong PMOS, that means the width of NMOS is more than PMOS and it has least resitance.</br>
+Now here we will be doing the SPICE simulation for device variations, and prove the robustness of CMOS inverter despite of different extreme conditions.
 
-<img width="1148" height="339" alt="Screenshot 2025-10-03 224857" src="https://github.com/user-attachments/assets/398d01a6-ffc4-4a10-86a8-3907d3214b69" />
-<img width="594" height="436" alt="Screenshot 2025-10-03 224935" src="https://github.com/user-attachments/assets/41b1f2f6-c4ba-4c71-a8e6-d1fc8e3b4844" />
-<img width="695" height="398" alt="Screenshot 2025-10-03 224949" src="https://github.com/user-attachments/assets/9314e15f-c027-47ba-b34e-f35d886e5aff" />
-<img width="726" height="321" alt="Screenshot 2025-10-03 225121" src="https://github.com/user-attachments/assets/280f196e-1bde-417a-9955-7a0f2029ee39" />
-<img width="753" height="567" alt="Screenshot 2025-10-03 225153" src="https://github.com/user-attachments/assets/33e8fc0e-5220-4dc4-8da9-4c8dd5406e02" />
+STRONG PMOS - WEAK NMOS
+
+* When PMOS is strong, that means, it is least resistance one, widest possible PMOS available. Wp = 1.875u is the highest which can be fabricated. 
+* Weak NMOS -- NMOS resistance is very high. Wn = 0.375u lowest can be fabricated.
+
+* Weak PMOS - Highest resistance - Wp = 0.375u
+* Strong NMOS - Lowest resistance - Wn = 1.875u 
+We are taking the device to the extreme cases and 
+
+<img width="891" height="506" alt="image" src="https://github.com/user-attachments/assets/971d0fa6-6fd1-47b2-8a57-a98d1fb6584a" />
+
+<img width="609" height="470" alt="image" src="https://github.com/user-attachments/assets/923947dd-f0fb-43b2-94d0-77fbbac6fa35" />
+
+<img width="618" height="486" alt="image" src="https://github.com/user-attachments/assets/1d4c642d-6343-4de2-ba78-53f2d837ae7b" />
+
+<img width="580" height="494" alt="image" src="https://github.com/user-attachments/assets/a5ff1fa6-b902-4e66-86e2-98732bf4232e" />
+<img width="542" height="438" alt="image" src="https://github.com/user-attachments/assets/f4780f3b-726b-4748-bd29-f6acf5f1f37b" />
 
 ### L4 Conclusion
-We will draw some conclusions from the characteristics we got.
 
-<img width="994" height="537" alt="Screenshot 2025-10-03 231012" src="https://github.com/user-attachments/assets/aec473f9-00f5-4028-b122-fa2922affcb3" />
+We will get the conclusion in this module
 
-* The Switching threshold 'Vm' is shifted right in case of strong PMOS and shifted left in case of Strong NMOS. </br>
+<img width="846" height="496" alt="image" src="https://github.com/user-attachments/assets/f338da7a-01a0-4521-94a7-d68321f17c6e" />
 
-<img width="1006" height="541" alt="Screenshot 2025-10-03 231027" src="https://github.com/user-attachments/assets/38851b7b-ec82-4400-93d8-c3c651d51ae9" />
+* Calculating the Switching Threshold, we need to draw the 45 degrees line, and observe the curve where Vin = Vout. There is around 1.2V of variation in the switching threshold. Switching threshold varying in the area will not effect the operation of the CMOS.
 
-* THere not much variation in NOise Margins in both the extreme cases, that means it behaves as a robust inverter in both the cases.</br>
+The Switching threshold 'Vm' is shifted right in case of strong PMOS and shifted left in case of Strong NMOS.
 
-<img width="519" height="169" alt="Screenshot 2025-10-03 231046" src="https://github.com/user-attachments/assets/edd63a58-b8bb-462e-84e5-b8c977d4a4d2" />
+<img width="766" height="492" alt="image" src="https://github.com/user-attachments/assets/ccc32891-7d7b-4fb9-a8df-714200a9feaa" />
+
+* Variation in the Nosie Margin :
+
+There is not much variation in Noise Margins in both the extreme cases, that means it behaves as a robust inverter in both the cases.
+<img width="806" height="503" alt="image" src="https://github.com/user-attachments/assets/99328342-3783-4ed5-8790-66148b131e88" />
+
+The CMOS inverter the operation of gate is kept intact, This Inverter can be used to build complex logic gates. You can use this CMOS inverter logic to build NAND Gate, NOR Gate etc. 
+
+
+
+
+
+
+
+
+
+
+
+---- Need to do Simulations.. 
+
+
+
+
+
 
 ### L5 Sky130 device variations labs
 We will now do the SPICE simulations for the device variations</br>

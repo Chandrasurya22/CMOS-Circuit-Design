@@ -1019,6 +1019,7 @@ M2 is for the NMOS transistor
 Simulation commands
 
 <img width="889" height="500" alt="image" src="https://github.com/user-attachments/assets/888e3b22-5e8b-481a-b81e-e220dcfc7d62" />
+
 we will be sweeping the input voltage from 0 to 2.5V with the step of 0.05V and measuring the Vout or output waveform
 
 Describing the model files -- This the file from which takes the description of the NMOS and PMOS is taken.  In this file you will see an attributre for PMOS and NMOS and all the description and parametets of nmos and pmos are present respectively. 

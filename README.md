@@ -191,7 +191,7 @@ due to the additional reverse bias.
 
 <img width="1532" height="666" alt="image" src="https://github.com/user-attachments/assets/f72d0ca8-cc1f-4f60-a65d-dbd430caa824" />
 
-### Threshold Voltage with positive substrate potential
+### L4 Threshold Voltage with positive substrate potential
 
 An important observation: 
 So in referring to the above mentioned Case 2 of ( Vsb = +ve value ), Due to the presence of the +ve Vsb, few charges from the channel are pulled towards the source 'S'. 

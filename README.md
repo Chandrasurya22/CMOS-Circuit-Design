@@ -1272,7 +1272,9 @@ Nosie Margin is related to the Glitches, cross talk margins. We will understand 
 For example, consider a saftey bufffer against electrical disturbances. If the noise on a wire exceeds this defined margin, the circuit risks flipping to an incorrect logic state, leading to corrupted data. 
 
 Now consider an ideal inverter. if you provide logic low level at input you will get logic high and vice versa. 
+
 If we plot the characteristics on a graph it is as below: 
+
 <img width="575" height="365" alt="image" src="https://github.com/user-attachments/assets/9f7f9e69-0da1-4724-8de9-2987d54b2a58" />
 
 At the half the voltage (Vdd)/2, you can see there is a Switch is happening. 
@@ -1280,14 +1282,17 @@ The slope should be infinite in this ideal case. The change in output voltage is
 
 More practical scneario: 
 
-In practical reasons, with precense of PMOS and NMOS in inverter. We have some real resistance and capacitance in the practical inverter. Here the line will be with a slope. this is beacuse you have finite resistances and capacitances, hence output takes time to move / drop from Vdd to around 0 V 
+In practical reasons, with precense of PMOS and NMOS in inverter. We have some real resistance and capacitance in the practical inverter. Here the line will be with a slope. this is beacuse you have finite resistances and capacitances, hence output takes time to move or drop from Vdd to around 0 V. 
 
 Here the slope is Finite Slope. 
+
 <img width="668" height="422" alt="image" src="https://github.com/user-attachments/assets/f0c3c03d-b254-43aa-abbb-c153b7d5df65" />
 
 VIL = Whenever your input votage lies between 0 and VIL ( input Low Voltage ) , we expect the output to be HIGH. 
 
+
 VIH = If any input voltage that lies above VIH ( input High Voltage)  and below VDD, we expect the output to be LOW. 
+
 <img width="681" height="451" alt="image" src="https://github.com/user-attachments/assets/94425b5c-9a28-4356-b69e-e9223ec8460c" />
 
 <img width="687" height="459" alt="image" src="https://github.com/user-attachments/assets/b657e50f-0e81-4a18-a2bc-9a0d628d7dc7" />
@@ -1300,14 +1305,14 @@ The VOL the should be and expected to be in the range of ( 0 to VIL ), as output
 
 We can infer that VOL < VIL. 
 
-example: 
-as this inverter will be connected to another inverter, which is expecting the VIL to turn HIGH, so we need to take care that the expected VIL for the next inverter is within the range. 
+Example: 
+As this inverter will be connected to another inverter, which is expecting the VIL to turn HIGH, so we need to take care that the expected VIL for the next inverter is within the range. 
 
 * For this inverter, when your input lies in this range 0 to VIL , your output is expected to be VOH and above ( detected as LOGIC 1 ) . 
 
 Similarly, VOH > VIH : VOH should be at a point greater than VIH, so as this inverter can feed input to another logic which is expecting the logic HIGH / detect the logic HIGH.  
 
-Slope = -1. (ex: moving from  Vin: 100 to 200, and Vout :900 to 800 , slope  = -100/100 = -1) 
+  Slope = -1. (ex: moving from  Vin: 100 to 200, and Vout :900 to 800 , slope  = -100/100 = -1) 
 
 <img width="672" height="383" alt="image" src="https://github.com/user-attachments/assets/e95e8556-e378-4217-a158-152d6eed5e91" />
 
@@ -1321,7 +1326,8 @@ Lets calculate the Noise Margin equation, for that we will plot the voltages on 
 <img width="691" height="471" alt="image" src="https://github.com/user-attachments/assets/9330fd26-fa67-4f9e-8056-810f5f35f283" />
 
 
-**Noise Margin HIGH NMH** - Any voltage level lies between VIH and VOH. 
+**Noise Margin HIGH NMH** - Any voltage level lies between VIH and VOH.
+
 **Noise Margin LOW NML** - ANy voltage level lies between VIL and VOL.
 
 These above ranges are known as tolerable range. That is, if the noise that are induced in this range it wont effect your circuit/logic. It will stil treated as the respective logic.  
@@ -1398,6 +1404,8 @@ similarly if we check the lower side,
 This Y value will be VOL and the the X value will be VIH. 
 
 **For Noise margin High ( NMH ) =  VOH - VIH =  1.69583 - 0.99 = 0.70783**
+
+
 **For Noise Margin Low ( NML ) = VIL - VOL =  0.778889 - 0.091667 = 0.687222**
 
 

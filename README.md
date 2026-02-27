@@ -1399,6 +1399,8 @@ We are taking the W/L ratios of PMOS to NMOS as 2.77 and sweeping the Vin from 0
 This Y value is nothing but VOH and the X value is nothing but the VIL 
 
 similarly if we check the lower side, 
+
+
 <img width="251" height="49" alt="image" src="https://github.com/user-attachments/assets/c197a7e7-783a-4241-be05-e04860312d8d" />
 
 This Y value will be VOL and the the X value will be VIH. 

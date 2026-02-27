@@ -1410,20 +1410,20 @@ This Y value will be VOL and the the X value will be VIH.
 We will scale the Supply voltage, if you are working or moving from the 250 nm to 20 nm. or if you are earlier operating at 1V now they operate in 0.7mV. We have the situation to scale the Power supply ( lets say low voltage applications ), in such cases CMOS  inverter should not change. 
 While evaluating the robustness of CMOS inverter another factor is **Power Supply Scaling**. On reducing the gate length, the operating power is also reduced. On power scaling the Cmos characteristics should not change.
 
-We need to take inverters, as below. 
+We need to take inverters, as below. We will take another inverter and sweep the supply voltage from the 2.5V to 1V, in this experiment the goal is that CMOS inverter behavior should not change. 
+
 <img width="271" height="210" alt="image" src="https://github.com/user-attachments/assets/724139f4-36be-4ed9-949e-764e13afd588" />
 
-We will take another inverter and sweep the supply voltage from the 2.5V to 1V, in this experiment the goal is that CMOS inverter behavior should not change. 
 <img width="816" height="252" alt="image" src="https://github.com/user-attachments/assets/a18ceab8-bc4d-4852-abe6-e287aa84d1b7" />
+
 
 If we consider the scenario there will be multiple spice netlists. or in another way we can take the single spicelist ( SMART Netlist) 
 
-
 <img width="605" height="478" alt="image" src="https://github.com/user-attachments/assets/a85b5648-a3b9-4486-b928-2ec2e97599ba" />
-The first section of the spice netlist remains the same. 
- Now in the next section, 
 
- Anything between the '.control'  and '.endc' we can do any scripting here. For example we can use do while loop like that. 
+The first section of the spice netlist remains the same.  Now in the next section, 
+
+Anything between the '.control'  and '.endc' we can do any scripting here. For example we can use do while loop like that. 
 
 <img width="556" height="294" alt="image" src="https://github.com/user-attachments/assets/3b8dff90-c69c-4709-a3d7-daad9d0c1f7f" />
 
@@ -1435,7 +1435,8 @@ The first section of the spice netlist remains the same.
 *   alter Vdd = powerSupply , it will set the new powersupply on the fly to Vdd.
 *   Since we know that there will be 5 DC plot we have given plot dc1. out vs in, plot dc2. out vs in and so on.
 *   We also gave the labels for the axes.
-*   We can also add and write comnplex scripting. 
+*   We can also add and write comnplex scripting.
+  
 <img width="595" height="245" alt="image" src="https://github.com/user-attachments/assets/f9216037-2fc4-4860-b791-eeef634732f2" />
 
 We will now plot the VTC charactersitics for Vdd= 2.5V, 2V, 1.5V, 1V, 0.5V;
@@ -1451,6 +1452,7 @@ We will now analyse the curves we got in after the simulation and see what are t
 
 **Gain Factor: **
 * Gain is the change in output voltage / change in input voltage.
+  
 <img width="820" height="432" alt="image" src="https://github.com/user-attachments/assets/ce86abd9-d02c-4722-8985-a88cf2cd1b19" />
 
 <img width="838" height="421" alt="image" src="https://github.com/user-attachments/assets/82c3850a-9e74-4c56-abfc-27f52fdb87ac" />
@@ -1458,6 +1460,7 @@ We will now analyse the curves we got in after the simulation and see what are t
 
 **Energy Factor** 
 * Energy = 1/2 * C* V * V ( C = output load capacitance, V = voltage )
+  
 <img width="846" height="413" alt="image" src="https://github.com/user-attachments/assets/1d0713a6-d039-4e97-930b-1206f5796169" />
 
 <img width="835" height="498" alt="image" src="https://github.com/user-attachments/assets/7bfcae1c-2f55-42d0-a69a-c16e8a78ef77" />
@@ -1470,26 +1473,24 @@ The Advantages:
 The disadvantages:
 
 * The rise delay and fall delay, for CMOS inverter with a supply of 2.5V, we will get a rise delay = 66ps and fall delay = 78ps, as soon as the supply votlage is reduced and kept everything as constant, we will understand that for charging the same capacitor this supply voltage is not enough.
+  
 <img width="834" height="415" alt="image" src="https://github.com/user-attachments/assets/9f985ff2-d558-43ff-89d9-9490bbca2688" />
 
 * As the Supply voltage is 0.5V, we will observe that the Capacitor/device neither charges full nor discharges. The rise time is not sufficent enough to charge output load capacitance to 0.5V. This is a Major disadvantage. 
 
 *   In this case the device might not even operate as expected, that means the device operating at 0.5V needs some extra time to perform the same actions that the device operating with 2.5V.
+  
 *   When you have 2.5V, you will have enough space , enough supply for the output load capacitance to charge.
 
 <img width="873" height="422" alt="image" src="https://github.com/user-attachments/assets/65ef11cf-817c-44c2-a591-38201ae558b6" />
 
 <img width="842" height="418" alt="image" src="https://github.com/user-attachments/assets/78ea4934-168d-4d94-8eef-2c722e26d477" />
+
 <img width="834" height="421" alt="image" src="https://github.com/user-attachments/assets/688a0c3e-7dbb-406c-b06e-577a3080ca1e" />
 
 Due to the huge difference in the Rise delay and fall delay, that is a performance impact. which is the main disadvantage. 
-
-
 Though, we have a significant advantage, we have Performance impact as a major disadvantage on the other side. 
-
 Due to low supply voltage, the charging and discharging of load capacitor becomes very slow, due to this the Both rise delay and fall delay will increase and lead to a performance impact.
-
-
 
 ### L3 Sky130 Supply variation Labs
 
@@ -1520,18 +1521,18 @@ We shall calculate the gain :
 
 |Gain| = 9.832
 
-![Uploading image.png…]()
 
 ## Static behaviour evaluation-CMOS inverter robustness-Device variation
 
 ### L1 Sources of variation - Etching process
+
 Here in this module we will identify the sources for the variation of the CMOS device. 
 
 **Etching Process**
+
 * Etching - A fabrication step, this is the process which actually defines the structure, it defines the width and heights of the structure, a very important step. Based on the structure it gets defined, it directly impacts the delay.
 
 <img width="833" height="420" alt="image" src="https://github.com/user-attachments/assets/69653321-0210-4ccf-a8ef-e29613168fc8" />
-
 
 * Blue lines indicate the metals, Green indicate - P Diffusion , Yellow indicate - N diffusion, Red represent the poly silicon area,  the cross symbol is the contacts.
 
@@ -1541,12 +1542,11 @@ Here in this module we will identify the sources for the variation of the CMOS d
 
 <img width="317" height="461" alt="image" src="https://github.com/user-attachments/assets/7be09fa2-925c-496b-bed8-7f224ce6c132" />
 
-
 **Chain of Inverter** 
+
 Fabricate a Chain of Inverter: 
 
 <img width="880" height="501" alt="image" src="https://github.com/user-attachments/assets/27718d11-9c0d-415a-a496-94185c9a9ea6" />
-
 
 Taking a single Inverter and observering it 
 
@@ -1559,35 +1559,40 @@ Now observe, this actual mask of variation is for one single inverter. We can se
 <img width="854" height="485" alt="image" src="https://github.com/user-attachments/assets/5c2c7813-b81f-4312-8cec-d29844f5493f" />
 
 The variation is more at the edges or sides than at the center.
+
 <img width="881" height="479" alt="image" src="https://github.com/user-attachments/assets/9048c34d-91a0-4370-ab99-5ca8f619be87" />
 
 <img width="896" height="513" alt="image" src="https://github.com/user-attachments/assets/add1f9c3-b9fb-4d64-9f20-6aba5013254f" />
 
 Drain current equation of any gate, MOSFET or of any transisitor 
+
 <img width="694" height="164" alt="image" src="https://github.com/user-attachments/assets/f7e7d3fe-c663-4ca1-97b3-e73dfdc77ef7" />
 
 You can see the drain current is directly related to the W/L 
 
 
 ### L2 Sources of variation - Oxide thickness
+
 Another source of variation is **Oxide Thickness**
 We are looking at the cross sectional view of the Transistor. We will see the oxide under polysilicon gate, while fabricating the thickness can vary.
 
 <img width="885" height="504" alt="image" src="https://github.com/user-attachments/assets/4d2fd766-0088-4d36-a2a3-3ce496fc50cc" />
 
 Now we are checking on the oxide thickness variation here. 
+
 There is a difference between ideal thickness and actual thickness.
 
 
 Taking one transistor from the chain of inverters and chekcing it through the cross sectional area. 
+
 <img width="876" height="496" alt="image" src="https://github.com/user-attachments/assets/ec377313-71d3-4f9b-86a5-32a9ecaf0d7d" />
 
 In the real Fab world, the process wont stay ideal, so the oxide thickness is not constant around the Gate length. Simiarly, there wil be Oxide thickness variation for the pool of transistors. 
+
 <img width="872" height="487" alt="image" src="https://github.com/user-attachments/assets/31309077-ed1c-40a6-aa9d-c84f5073ec26" />
 
 There will be variations for all the transistors. 
 There will be minimal variations in the transistors in the middle compared to the transistors in the sides as they are exposed for the other structures 
-
 
 We know **Cox=Eox/tox**, therefore change in tox can actually change the drain current.
 
@@ -1595,6 +1600,7 @@ We know **Cox=Eox/tox**, therefore change in tox can actually change the drain c
 
 
 ### L3 Smart SPICE simulation for device variations
+
 Now here we will be doing the SPICE simulation for device variations, and prove the robustness of CMOS inverter despite of different extreme conditions.
 
 STRONG PMOS - WEAK NMOS
@@ -1603,7 +1609,8 @@ STRONG PMOS - WEAK NMOS
 * Weak NMOS -- NMOS resistance is very high. Wn = 0.375u lowest can be fabricated.
 
 * Weak PMOS - Highest resistance - Wp = 0.375u
-* Strong NMOS - Lowest resistance - Wn = 1.875u 
+* Strong NMOS - Lowest resistance - Wn = 1.875u
+  
 We are taking the device to the extreme cases and 
 
 <img width="891" height="506" alt="image" src="https://github.com/user-attachments/assets/971d0fa6-6fd1-47b2-8a57-a98d1fb6584a" />

@@ -1503,8 +1503,6 @@ The initial supply voltage is 1.8V and we are reducing it with the step of 0.2V,
 
 <img width="1874" height="1198" alt="image" src="https://github.com/user-attachments/assets/c575397f-d4d1-40c3-863e-ef50fa49231b" />
 
-<img width="1855" height="1199" alt="image" src="https://github.com/user-attachments/assets/043fea75-f0cb-4989-9697-9f485fb1da56" />
-
 <img width="1849" height="1109" alt="image" src="https://github.com/user-attachments/assets/a103d9ba-a5d0-429d-b643-8713bbd65cbd" />
 
 We shall calculate the gain : 

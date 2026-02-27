@@ -982,12 +982,14 @@ The value of the output load capacitor comes after a lot of theories, and it sho
 * Component values are assigned. 
 Note: Ideally PMOS should be 2 or 3 times bigger than NMOS. But for now we are taking the same width for both NMOS, PMOS.
 
-* Next defining the values of the input gate voltage and output voltage. 
+* Next defining the values of the input gate voltage and output voltage.
+  
 <img width="889" height="434" alt="image" src="https://github.com/user-attachments/assets/98708e55-ab24-46cc-a613-1251c88b1d9d" />
 
 
 * Next we have identify the nodes. ( as node is two points which has a component between them)
   Nodes are basically required to define the SPICE NETLIST
+  
   <img width="519" height="425" alt="image" src="https://github.com/user-attachments/assets/cb72d395-2b26-438f-aec5-de99480375b0" />
 
 * **Name the nodes** In model file we will mention like, 2.5V input lies between Vin and 0, similarly Vdd lies between vdd and 0.
@@ -1008,14 +1010,19 @@ M2 is for the NMOS transistor
 <img width="874" height="458" alt="image" src="https://github.com/user-attachments/assets/75e060b1-d3b9-4b37-84a3-229cd365f889" />
 
 <img width="891" height="504" alt="image" src="https://github.com/user-attachments/assets/9826fc28-de11-4ddf-b437-e11c7c6aab44" />
+
 <img width="900" height="480" alt="image" src="https://github.com/user-attachments/assets/943bde5e-f4b8-4d9e-bf2c-5950ccc87552" />
+
 <img width="887" height="432" alt="image" src="https://github.com/user-attachments/assets/68013985-0e89-4f63-8e67-3b882b0379a0" />
 
+
 Simulation commands
+
 <img width="889" height="500" alt="image" src="https://github.com/user-attachments/assets/888e3b22-5e8b-481a-b81e-e220dcfc7d62" />
 we will be sweeping the input voltage from 0 to 2.5V with the step of 0.05V and measuring the Vout or output waveform
 
 Describing the model files -- This the file from which takes the description of the NMOS and PMOS is taken.  In this file you will see an attributre for PMOS and NMOS and all the description and parametets of nmos and pmos are present respectively. 
+
 <img width="876" height="442" alt="image" src="https://github.com/user-attachments/assets/32b5a2a7-5074-4260-81e3-87485a330e20" />
 
 
@@ -1023,15 +1030,18 @@ SPICE Simulation for the Wn = Wp = 0.375u ( Channel Width ) ; Ln = Lp = 0.25u ( 
 and Wn/Ln = Wp/Lp = 1.5 
 
 model file : 
+
 <img width="636" height="480" alt="image" src="https://github.com/user-attachments/assets/cd9a2ef8-5957-45b4-818a-c717477a6ebc" />
 <img width="634" height="470" alt="image" src="https://github.com/user-attachments/assets/247cf565-c670-47cb-8e9e-faa04ce4dc7f" />
 
 Netlist
+
 <img width="636" height="464" alt="image" src="https://github.com/user-attachments/assets/e7d901eb-fcb7-49bc-83bc-07b1abb75b8d" />
 
 <img width="609" height="356" alt="image" src="https://github.com/user-attachments/assets/3c0f804a-55a7-46fd-a6c5-6250b1a7b7a6" />
 
 Waveform of VTC : 
+
 <img width="683" height="483" alt="image" src="https://github.com/user-attachments/assets/89e8e764-315d-4f1a-97b3-3b7b10bfab50" />
 
 
@@ -1043,10 +1053,12 @@ and Wn/Ln =1.5 , Wp/Lp = 2.5
 The width of the PMOS transitor is 2.5 times more than the NMOS transistor 
 
 Spice deck for the changed PMOS width values : 
+
 <img width="640" height="473" alt="image" src="https://github.com/user-attachments/assets/b002e105-91c5-44f7-9e25-21efee23697b" />
 
 And executing: 
 dc2
+
 <img width="548" height="448" alt="image" src="https://github.com/user-attachments/assets/cc2a927a-1cb6-430a-a8d7-accd46a97f00" />
 
 If we observe the previous graph is left shifted slightly. This happens because NMOS is more stronger than PMOS in previous graph.
@@ -1069,6 +1081,7 @@ This is the VTC Characteristics of the CMOS inverter
 
 We need to find the switching Threshold - It is the point where Vin = Vout. 
 For zoom in, select the area. 
+
  press righ mouse button + hold it.
 
 
@@ -1080,6 +1093,7 @@ For zoom in, select the area.
 So switching threshold for W/L=2.3 is around 0.876V
 
 Transient Analysis: 
+
 <img width="1498" height="216" alt="image" src="https://github.com/user-attachments/assets/6f0d6d4d-73dd-4663-842f-8ea705af4744" />
 
 in transient analysis, we are giving the pulse signal ( 0 to 1.8v with shift of 0, rise time and fall time of 0.1 ns., with pulse width of 2ns, total time period of 4ns ) 
@@ -1093,9 +1107,11 @@ in transient analysis, we are giving the pulse signal ( 0 to 1.8v with shift of 
 
 
 We need to calculate Rise delay and Fall delay, we have to consider 50% of Vdd. I.e (1.8 / 2 )=0.9 . So for rise delay and fall delay, we need to consider 50% of output curve i.e. at 0.9V; 
+
 <img width="731" height="552" alt="image" src="https://github.com/user-attachments/assets/b1d9584d-3e3a-4d49-9a0a-f54241d0eac4" />
 
 Rise Delay: 
+
 <img width="1742" height="776" alt="image" src="https://github.com/user-attachments/assets/ad7d7f6d-3162-42ac-83b4-4e7f811c1421" />
 
 <img width="612" height="430" alt="image" src="https://github.com/user-attachments/assets/7ffaec6e-ca0a-406d-aa14-0d1039365ebd" />
@@ -1120,25 +1136,33 @@ This is how we calculate the rise delay and fall delay in the Transcient Analysi
 ## Static behaviour evaluation-CMOS inverter robustness-Switching Threshold
 
 ### L1 Switching Threshold, Vm
+
 Let us compare the two different CMOS Inverters with Different W/L ratios of PMOS and NMOS, we can basically say PMOS is bigger than NMOS. 
 *  Irrespective of the voltage level which they are shifting, the shape of waveform remains the same. -- We can infer that CMOS device is a robust device.
-*  When every your Vin is high , output is low and vice versa. This characteristics is maintained for all kinds and sizes of CMOS inverter. That is the reason it is widely used in the circuits / logic gate designing. 
+*  When every your Vin is high , output is low and vice versa. This characteristics is maintained for all kinds and sizes of CMOS inverter. That is the reason it is widely used in the circuits / logic gate designing.
+  
 <img width="900" height="447" alt="image" src="https://github.com/user-attachments/assets/58180641-fb27-454e-87da-0f12f58289dc" />
 
 **Static Behaviour Evaluation: CMOS Inverter Robustness**
 
 1. Switching Threshold, Vm :
+
     * It is the point where Vin = Vout. we will draw a tan 45 degress line and identify the point Vm at which the Vin = Vout.
 
  For  Wn/Ln = Wp/Lp = 1.5   
+ 
 <img width="787" height="493" alt="image" src="https://github.com/user-attachments/assets/00aa5c47-8a3e-443d-8d05-918f7249b706" />
 
 For the bigger device 
+
 <img width="739" height="534" alt="image" src="https://github.com/user-attachments/assets/9e95b621-5945-49f4-a8e4-90b7a7bae61b" />
 
    * In this area, in this point PMOS and NMOS both are in saturation. The both are kind of turned ON, if both are turned On there is a chance of Leakage to the ground.
+     
    * Switching Threshold values
+     
      <img width="850" height="495" alt="image" src="https://github.com/user-attachments/assets/6cf551c4-453a-4a18-bb78-cc63c0964a89" />
+     
    * Both Turned ON -- beacuse the gate voltages are very much above Vt.
    * Curent flows from both the transistors ( direction mentioned in the below image ) 
 
@@ -1163,14 +1187,15 @@ When you solve the equation for value of Vm, we get it as 0.98v
 
 
 ### L3 Analytical expression of (W/L)n and (W/L)p as a function of Vm
+
 Now here we will calculate the value of W/L for PMOS and NMOS when Vm is given.
 We have to move in reverse fashion, as we need to calculate W/L ratio of PMOS and NMOS such that Switching threshold is exatly half of the power supply Vdd = 2.5V, therefore required Vm = 1.25V.
+
 We will set the Value of Vm here, Alternatively the required ratio of PMOS vs NMOS transistor size can be derived such that Vm is set. 
 
 We will start from the current equation itself i.e. **Idsn = -Idsp**
 
 Expanding Kp and Kn (Gain factor) </br>
-
 
 <img width="874" height="406" alt="image" src="https://github.com/user-attachments/assets/ce78a54b-d439-4d59-811b-b6d6503e2585" />
 
@@ -1189,6 +1214,7 @@ You keep the set value of the Vm and rest of the constants which we get in the m
 ### L4 Static and Dynamic simulation of CMOS inverter
 
 **For (W/L)n = (W/L)p = 1.5**
+
 <img width="533" height="438" alt="image" src="https://github.com/user-attachments/assets/023a7139-0874-48ad-bd43-39aa0ce4838e" />
 
 
@@ -1196,16 +1222,21 @@ You keep the set value of the Vm and rest of the constants which we get in the m
 
 We are going to feed the above pulse as an input and perform the transient analysis
 We can also calculate the "Rise Delay" and "Fall Delay" by using the transient analysis
+
 <img width="885" height="499" alt="image" src="https://github.com/user-attachments/assets/22b81f48-e6c9-4877-a27a-5db4f56d353c" />
 
 ### L5 Static and Dynamic simulation of CMOS inverter with increased PMOS width
+
 We will be doing the SPICE simulations for increased width of PMOS transistors and compare the results.
 
 **For (W/L)p = (2W/L)n, width of pmos is double the size of nmos **
+
 <img width="346" height="237" alt="image" src="https://github.com/user-attachments/assets/c9c3168f-7105-48d0-903d-99e9b7ac0fbe" />
 
 If we compare with the previous one, the DC characteristics have been shifted to the right side. 
+
 <img width="542" height="434" alt="image" src="https://github.com/user-attachments/assets/84e446fb-eb66-4ab8-bb7e-76308cb6515d" />
+
 As the PMOS has become stronger than NMOS, you have more area in the PMOS load capacitor to charged, it gets charged very fast. 
 
 <img width="898" height="509" alt="image" src="https://github.com/user-attachments/assets/8bedbe2f-b648-4d7a-9776-7bb6d9c14c2a" />
@@ -1213,9 +1244,11 @@ As the PMOS has become stronger than NMOS, you have more area in the PMOS load c
 From the last case, the Vm has moved from 0.99 to 1.2V, the reason is size of PMOS has been increased. Area available for the PMOS to charge the load capacitor has been increased. As a result of that whenever the input switches from logic 1 to logic 0 , there is more amount of room available for the PMOS to charge and discharge. 
 
 **For (W/L)p = (3W/L)n, width of pmos is thrice the size of nmos
+
 <img width="884" height="505" alt="image" src="https://github.com/user-attachments/assets/d6cba8db-1d9e-4f19-8ab7-ea20917b1fe8" />
 
 further increasing the width of PMOS 
+
 <img width="894" height="503" alt="image" src="https://github.com/user-attachments/assets/ffd08204-23fc-42f0-b9c4-51b2ff517a5b" />
 
 <img width="882" height="497" alt="image" src="https://github.com/user-attachments/assets/3ec9730c-cbfd-4b64-a9bc-d1c0ba0531e1" />
@@ -1227,32 +1260,35 @@ Rise Delay -- It says that the time required by the output capacitor to charge c
 ### L6 Applications of CMOS inverter in clock network and STA
 
 Observations from the above experiment : 
-* If you vary the PMOS size, lets say from 2times or 3 times the width of the NMOS, we can observe there is no much diffference in the Vm voltage. Hardly a 50 mV difference. With this we can say that During Fabrication, there can be slight variation in sizes of PMOS and NMOS from the expected one. But the robutness of CMOS inverter is such that, there is not much difference in the Vm with change in sizes.
 
+* If you vary the PMOS size, lets say from 2times or 3 times the width of the NMOS, we can observe there is no much diffference in the Vm voltage. Hardly a 50 mV difference. With this we can say that During Fabrication, there can be slight variation in sizes of PMOS and NMOS from the expected one. But the robutness of CMOS inverter is such that, there is not much difference in the Vm with change in sizes.
 
 * When (W/L)p = (2W/L)n, in this case we can see that the rise delay and the fall delay is approximately equal, if we design the CMOS with Switching threshold Vm = 1.22.. or 1.23 we can obtain the eqaul rise and fall delay  and form a Symmetry cell.
 
 *This is a typical characteristic of Clock Inverter/buffer where we want the rise delay and fall delay to be equal.*
+
 <img width="891" height="494" alt="image" src="https://github.com/user-attachments/assets/47f857aa-9d85-44e0-8769-6bc423a0c1e5" />
 
 <img width="876" height="498" alt="image" src="https://github.com/user-attachments/assets/ba9f1278-f678-4f68-b558-3aa4f4b64937" />
 
 Snippet from the clock tree synthesis
+
 This is the structure that how the clock buffer looks like, the PMOS size is equal to NMOS here and it is made in such a fashion that their resistances matches
 
 Here in the below case, the resistance of the PMOS is 2.5 times the resistance of NMOS. 
+
 <img width="902" height="523" alt="image" src="https://github.com/user-attachments/assets/39190656-6496-4f76-beeb-f7280f697ae7" />
 
 When you replace the normal inverter by a clock inverter 
+
 you get the equal pulse, you will achieve the symmetry. At the output you got the pulse shape waveform which is equal to what you have feed input. 
+
 <img width="895" height="520" alt="image" src="https://github.com/user-attachments/assets/98e5c2e5-a365-41cd-affe-e56f90951353" />
-
-
-
 
 <img width="887" height="456" alt="image" src="https://github.com/user-attachments/assets/ee83a974-17c9-4861-8e05-90cba426f695" />
 
 The unequal rise and fall delay cells, can still be used in the data paths. 
+
 Other types of cells can be used according to the data path requirement
 
 <img width="897" height="503" alt="image" src="https://github.com/user-attachments/assets/c34a52a3-96d0-4781-9a0d-590979e470b1" />

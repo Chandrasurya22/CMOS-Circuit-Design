@@ -588,19 +588,22 @@ With W = 1.8u, L = 1.2u ( W/L = 1.5 )
 
 * X axis plot which overlapping is at Vgs = 0V, as there is Id = 0 , means channel is not turned on.
 * All equations are plotted in the curve, while we vary the Vgs, we can plot it manually as well.
+  
   <img width="824" height="459" alt="image" src="https://github.com/user-attachments/assets/4e3d3d84-c9d2-48ce-8d41-b8e7cade4467" />
 
 *   The left area of the curve represents different behaviour of MOSFET compared to the right area
 *   In the left region: Drain current is the linear function fo the drain to source voltage.
 *   In the Right region: Darin current is no more in linear region. it is in the function of ( 1 + (lamda)Vds)
 *   Before reaching the point (Vds = Vgs - Vt) Mosfet is in the resistive, liner region, and beyond it it is in Saturation region.
-*   In Satuartion region with slight increase in current due to velocity saturation and below is the Cut off region.Also this case is when the channel length is large.</br>
+*   In Satuartion region with slight increase in current due to velocity saturation and below is the Cut off region.Also this case is when the channel length is large.
+  
 <img width="914" height="522" alt="image" src="https://github.com/user-attachments/assets/a7967bcb-e06e-4e04-835e-3fa8318aa4d2" />
 
 * Cut off region is the region/ area where your device is in cutt off.  here Vgs < Vt.
 
 * Lets take new Scenario, W = 0.375u, L = 0.25u device ( W/L = 1.5 )
-Note: As per the formulas, and the  per curve from last scenario, You will understand that when the W/L ratio is same / constant, you expect that the Ids will be same at any node ( of different W and L ), "BUT IT DOES NOT HAPPEN IN THE SAME WAY"
+  
+Note: As per the formulas, and the  per curve from last scenario, You will understand that when the W/L ratio is same / constant, you expect that the Ids will be same at any node ( of different W and L ), "BUT IT DOES NOT HAPPEN IN THE SAME WAY".
 
 To prove it, we will run the spice deck with the new W and L values. Keeping rest all the same from the previous. 
 
@@ -612,11 +615,11 @@ then plot -vdd#branch ( - is given due to the difference in the direction of the
 
 ### L2 Drain current vs gate voltage for long and short channel device
 
-
 **Observation 1:**
+
 Let us compare the two simulations we did.
 
-If we see Id values for different Vgs and for Vds=2.5V, there is a quadratic dependency of Id on Vgs. Whereas for short channel device, at Vds=2.5V, the current is increasing linearly due to velocity saturation
+If we see Id values for different Vgs and for Vds=2.5V, there is a quadratic dependency of Id on Vgs. Whereas for short channel device, at Vds=2.5V, the current is increasing linearly due to velocity saturation.
 
 There is a quadratic dependence of Id at each Vg 
 
@@ -628,6 +631,7 @@ Drain current will quadratically increases with increase in the gate voltage. Th
 For Short channel device: 
 
 Anything below 0.25u of length is know as short channel device. 
+
 There is quadratic difference upto a certain Vg, but after that there is a linear dependence. 
 
 Observing for  Drain current vs gate voltage for long and short channel device 
@@ -641,9 +645,7 @@ This is one of the effects ( short channel effect )  you will observe while goin
 
 <img width="901" height="509" alt="image" src="https://github.com/user-attachments/assets/00e1ba34-bb52-4cfc-9fbc-f4aa0c3f7f42" />
 
-
 Now, we keep the Drain to source voltage constant, vary the gate voltage and measure the drain current. This procedure will be applied to both the 1.2u and 0.25u device and observe the graphs. 
-
 
 Now the Spice deck will remain exactly the same, the only change is in the line mentioned in the below picture. 
 
@@ -662,7 +664,6 @@ and the VDD ( Vds ) is swept from the 0 to 2.5 with step of 2.5 ( as we want to 
 
 dc2 is of short channel and dc1 is for long channel. 
 
-
 <img width="1755" height="710" alt="image" src="https://github.com/user-attachments/assets/7cfaeb4d-ca7d-46a8-9945-7f3f75c48d87" />
 
 ### L3 Velocity saturation at lower and higher electric fields
@@ -678,13 +679,16 @@ So, for lower node we will have 4 regions of operations: **Cut Off, Linear, Satu
 * Velocity saturation happens for higher gate-source voltages
 
 At Lower fields: 
+
 <img width="681" height="255" alt="image" src="https://github.com/user-attachments/assets/cc66ff9b-09b5-4a37-9e48-eb080c45e12f" />
 
 At Higher Fields : 
+
 <img width="685" height="242" alt="image" src="https://github.com/user-attachments/assets/a22c9536-a4b7-4644-a8ba-da2bd4193804" />
 
 * Velocity is the linear function for the E <= Ec ( Ec ---Crictical electric field )
 * Velocity is constant for the E >= Ec
+
   <img width="386" height="93" alt="image" src="https://github.com/user-attachments/assets/b128f57a-6415-4eb1-ab7b-1a90aca4978e" />
 <img width="284" height="53" alt="image" src="https://github.com/user-attachments/assets/6bac0479-7df9-4973-b1a7-a7fdba65d3e0" />
 
@@ -706,9 +710,9 @@ As this model became complex, we are coming up with the simplified one.
 
 <img width="844" height="471" alt="image" src="https://github.com/user-attachments/assets/c76a68ce-34a3-4506-985c-38f0073ea6e0" />
 
-For Example If Vgt = Minimum value, that implies Vgs - Vt is minimum, that is Vds is at Highest, we are implying to the Saturation region.  
-<img width="738" height="405" alt="image" src="https://github.com/user-attachments/assets/532c27ac-45d5-4bbb-8688-28c0af72af6b" />
+For Example If Vgt = Minimum value, that implies Vgs - Vt is minimum, that is Vds is at Highest, we are implying to the Saturation region.
 
+<img width="738" height="405" alt="image" src="https://github.com/user-attachments/assets/532c27ac-45d5-4bbb-8688-28c0af72af6b" />
 
 Now Vds = minimum Values, that implies, smaller values of the Vds the device enters into resistive or linear region of operation. 
 
@@ -716,14 +720,11 @@ Now Vds = minimum Values, that implies, smaller values of the Vds the device ent
 
 As the Vds is minimum, (1+Lamda(Vds)) will get neglected for its lower value.  will become almost one. 
 
-
 Now Vdsat = minimum value, it will be applicable for short channel devices only. 
 
 <img width="864" height="496" alt="image" src="https://github.com/user-attachments/assets/1533e4d1-2247-4cb9-b467-d548fc850fb9" />
 
 In the above equation, it seems when W is constant and L is lowered then Id should increase, But it is not so practically.
-
-
 
 **Observation 2** 
 
@@ -731,10 +732,8 @@ Velocity Saturation causes your device to saturate early. so the peak current we
 
 <img width="900" height="515" alt="image" src="https://github.com/user-attachments/assets/f4c0fb35-da4c-40b2-a888-a6673fbe9064" />
 
-
 open source tools to gets hands on SPICE 
 <img width="905" height="247" alt="image" src="https://github.com/user-attachments/assets/b3e8d302-ae5e-4ddc-b102-7d70f7db80f9" />
-
 
 ### L5 Labs Sky130 Id-Vgs 
 Simulation for lower nodes. File : Day2 Design file. 
@@ -748,30 +747,26 @@ We are doing the Dc simulation, sweeping Vds from 0 to 1.8 v with step of 0.1
 
 and Vin = Vgs from 0 to 1.8V with step of 0.2
 
-
 After doing the Spice run of the file 
 
 <img width="1750" height="1023" alt="image" src="https://github.com/user-attachments/assets/151d11b0-b0fd-40c2-89de-a8213b26a4db" />
 
 The lower values of the Vgs it is showing quadratic behaviour and at the higher values of the Vgs it is showing the linear behaviour. The above plot is Id vs Vds for different values of Vgs. We can see for lower values of Vgs it is showing quadratic behaviour and for higher values of Vgs it is showing Linear behaviour. Now if want to see the peak current for Vgs=1.8V, just 'press' left click on mouse at Vgs=1.8V.
 
-
-
 <img width="903" height="1037" alt="image" src="https://github.com/user-attachments/assets/7317ba67-d996-44ca-af52-8d9f85d2bedc" />
 
 For Vgs of 1.8v, the peak current is measured as 196uA
-
-
 
 **Similary, if we want to see for Id Vs Vgs.**
 
 <img width="900" height="1048" alt="image" src="https://github.com/user-attachments/assets/ab8b5de2-7694-46fd-ab30-e8ae87c27a5b" />
 
-
 <img width="908" height="947" alt="image" src="https://github.com/user-attachments/assets/d594bbd6-8086-4cc7-9b17-770df572edb8" />
 
 Here we are giving only one specifice Vgs value to observe the characteristics. 
+
 <img width="772" height="997" alt="image" src="https://github.com/user-attachments/assets/4cb4a01c-9578-4aea-b0e7-7eb95e81e075" />
+
 AS we have taken the length as 0.15u -- the short channel, you can observe the linear behaviour. 
 Here again we are taking values for L=0.15u and W=0.39u, Keeping Vds constant at 1.8V and sweeping Vgs from 0 to 1.8V with step of 0.1V.</br>
 
@@ -783,7 +778,6 @@ Now we will calculate Threshold Voltage Vt for Id vs Vgs curve.
 In the curve we can see that Vt is the value when current increases drastically for small change in Vgs. To calculate we will draw tangent on the curve and see where it touches.</br>
 
 <img width="321" height="43" alt="image" src="https://github.com/user-attachments/assets/8caedd5e-d272-4711-a806-aa873bb38b99" />
-
 
 It comes at around 0.74V.
 
@@ -825,10 +819,10 @@ Vout to be zero, if your capacitance is completely charged, all the charge prese
 
 Direction of the current is also mentioned. 
 
-
 Now when Vin = 0, 
 In this condition, there is a direct current flow from Vdd to the CL, there by charging the capacitor, as a result Vout = Vdd. 
 Direction of the current is also mentioned. 
+
 <img width="883" height="518" alt="image" src="https://github.com/user-attachments/assets/eedfe1e4-29d8-4a58-9c48-dee7aa3fc54a" />
 
 Summary of the above. And also mentioned the Naming convention of the CMOS 
@@ -844,7 +838,6 @@ It should all need to be function of voltage.
 
 <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/66c32ef5-f81f-4459-9db3-c83dfeb37860" />
 
-
 ALso the current in both the condition is Idsn(drain to source for NMOS) and Idsp(Drain to source for PMOS)
 And **Idsp = -Idsn**, both are opposite in direction to each other.
  
@@ -852,12 +845,14 @@ Now NMOS IdsN vs VdsN Curve and PMOS IdsP Vs VdsP Curve.
 
 <img width="1919" height="1055" alt="image" src="https://github.com/user-attachments/assets/148cbcb3-8d54-40d0-a2c6-532ef3ac69a4" />
 
-For NMOS 
+For NMOS
+
 VgsN1 --> one of the gate to source voltage for NMOS, it was at zero potential, so the Id = 0 
 VgsN2 --> when you increase the Vgs to suffcient value, at point which is just above your threshold voltage  ( NMOS turns ON ) that is the Id curve. Similarly VgsN3 
 We increase further more till we achieve the maximum saturation VsgN which is VgsN5 
 
 For PMOS. 
+
 It is due to the direction, we are seeing Negative sign fo the IdsP 
 Negative -VdsP is what potential you are giving the NMOS to turn ON, the reverse potential you needed to give to turn ON the PMOS. 
 
@@ -879,6 +874,7 @@ We need to convert these curves as function of Vin and Vout.
 <img width="902" height="509" alt="image" src="https://github.com/user-attachments/assets/416e9b8b-db54-4106-aaf6-a9f9f2388e60" />
 
 [Below are the steps to Obtain voltage-Transfer Characteristics (VTC) for Static CMOS Inverter.] 
+
 These steps are applicable for the CMOS inverter of any Node. 
 **Step 1**
 1. We shall take all the possible values of the Vgsp ( 5 different Values)
@@ -929,6 +925,7 @@ Voltage Transfer characteristics of the CMOS can be obtained by merging the Load
 
 
 ### L6 Step4- Merge PMOS-NMOS load curves and plot VTC
+
 Voltage Transfer characteristics of the CMOS can be obtained by merging the Load Curve for NMOS and PMOS transitor. 
 
 We will superimpose the Load curver of NMOS on the Load Curve of PMOS. The reason we are doing this is , as we have Vin and Vout which is common for the whole CMOS,  if we want to derive the VTC it has to be the intersection points between between the NMOS and PMOS load curves 

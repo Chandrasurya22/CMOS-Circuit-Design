@@ -75,12 +75,16 @@
 Circuit Design: 
 1. Through PMOS and NMOS connections we can design the functionalities of the NOT, AND, OR, NOR gates.
 2. Basically, in ciruit design, the designing the connections of PMOS and NMOS transistors gives us the required functionality.
+   
 <img width="499" height="584" alt="image" src="https://github.com/user-attachments/assets/88914864-6bf2-4f82-b213-c8eaae4d7848" />
 
 Spice Simulation: 
 1. Transisitors comes up with Width and Length, The W/L ratio of the transistors will decide the value of current. and these current will decide the waveform.
+   
    <img width="976" height="422" alt="image" src="https://github.com/user-attachments/assets/9981d7a1-850e-47a0-946f-9edd415ad779" />
-2. Value of those current --> decides the waveform shape --> this shape in return provides us the information of the delays. </br> 
+   
+2. Value of those current --> decides the waveform shape --> this shape in return provides us the information of the delays. </br>
+   
     <img width="674" height="546" alt="image" src="https://github.com/user-attachments/assets/dc8b6583-d457-40fb-8e4f-f05cb142c32e" />
 
 Spice Simulation : If we want to determine the delay, we need to understand how to tune the W/L ratio. This can be achieved by the Spice Simuluation.  
